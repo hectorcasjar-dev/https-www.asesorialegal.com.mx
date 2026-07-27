@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Justicia Mexa Para Todos — Orientación legal clara sobre despido, finiquito, liquidación y prescripción conforme a la Ley Federal del Trabajo.">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='47' fill='%230f2440'/%3E%3Cpath d='M42,36 L58,36 L64,76 L36,76 Z' fill='none' stroke='%23d4af37' stroke-width='3'/%3E%3Cline x1='29' y1='36' x2='71' y2='36' stroke='%23d4af37' stroke-width='3'/%3E%3C/svg%3E">
+<title>JUSTICIA MEXA PARA TODOS — Sistema Experto Laboral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+  :root{
+    --ink:#12181f; --ink-2:#1c2531;
+    --panel:#f2ede0; --panel-2:#e8e1cd;
+    --brass:#c9a227; --brass-dim:#8f7326;
+    --wine:#1c4f9c; --wine-2:#2e6cc4;
+    --alert:#b3452f; --alert-2:#e0684f;
+    --text-on-dark:#e9e4d6; --text-dim:#a7adb8; --text-muted:#8a93a3;
+    --line: rgba(233,228,214,0.14); --line-panel: rgba(18,24,31,0.14);
+    --radius: 3px;
+    --acc-datos:#2e6cc4; --acc-terminacion:#d64550; --acc-prestaciones:#2f9e5c;
+    --acc-procedimiento:#d68910; --acc-calculadora:#1fa2a6; --acc-resumen:#8e5fd6;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(ellipse at 15% -10%, rgba(46,108,196,0.28) 0%, transparent 55%),
+      radial-gradient(ellipse at 105% 10%, rgba(212,175,55,0.10) 0%, transparent 42%),
+      radial-gradient(ellipse at 50% 120%, rgba(28,79,156,0.20) 0%, transparent 60%),
+      linear-gradient(rgba(201,162,39,0.05) 1px, transparent 1px) 0 0/48px 48px,
+      linear-gradient(90deg, rgba(201,162,39,0.05) 1px, transparent 1px) 0 0/48px 48px,
+      var(--ink);
+    color:var(--text-on-dark); font-family:'IBM Plex Sans', sans-serif; line-height:1.5; min-height:100vh;
+  }
+  .brandname{
+    font-family:'Spectral', serif; font-weight:700; letter-spacing:.02em;
+    font-size:clamp(26px,3.2vw,40px); line-height:1.05; margin:0 0 6px;
+    background:linear-gradient(100deg, #f0d379 0%, #d4af37 35%, #8fb8f0 70%, #4d84d6 100%);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:var(--brass);
+  }
+  .titleblock .tagline{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.06em; color:var(--text-dim); margin:0 0 16px;}
+  .wrap{max-width:1180px;margin:0 auto;padding:48px 28px 90px;}
+  header{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;border-bottom:1px solid var(--line);padding-bottom:28px;margin-bottom:30px;}
+  .titleblock .eyebrow{font-family:'IBM Plex Mono', monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin:0 0 10px;}
+  h1{font-family:'Spectral', serif;font-weight:700;font-size:clamp(24px,3vw,36px);line-height:1.1;margin:0 0 10px;letter-spacing:-.01em;max-width:660px;}
+  .sub{color:var(--text-dim);font-size:15px;max-width:580px;margin:0;}
+  .seal{flex:0 0 auto;width:110px;height:110px;border-radius:50%;position:relative;filter:drop-shadow(0 0 18px rgba(212,175,55,0.35));animation:pulseSeal 5s ease-in-out infinite;}
+  .seal svg{width:100%;height:100%;display:block;}
+  @keyframes pulseSeal{0%,100%{filter:drop-shadow(0 0 12px rgba(212,175,55,0.28));}50%{filter:drop-shadow(0 0 22px rgba(46,108,196,0.4));}}
+
+  .disclaimer{display:flex;gap:14px;align-items:flex-start;background:rgba(28,79,156,0.16);border:1px solid rgba(46,108,196,0.5);border-radius:var(--radius);padding:16px 18px;margin-bottom:28px;}
+  .disclaimer .mark{font-family:'Spectral',serif;font-weight:700;color:var(--wine-2);font-size:20px;line-height:1;border:1px solid var(--wine-2);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .disclaimer p{margin:0;font-size:13.5px;color:#cfe0f7;}
+  .disclaimer strong{color:#eaf2fd;}
+
+  .flowline{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+  .flowline .step{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;text-transform:uppercase;font-weight:500;
+    color:var(--step-color); padding:7px 14px 7px 12px; border:1.5px solid var(--step-color); border-radius:20px;
+    background:color-mix(in srgb, var(--step-color) 12%, transparent);
+    display:inline-flex; align-items:center; gap:7px; opacity:.62; transition:opacity .2s ease, transform .2s ease;
+  }
+  .flowline .step::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--step-color);flex:0 0 auto;}
+  .flowline .step.done{opacity:1; background:color-mix(in srgb, var(--step-color) 22%, transparent);}
+  .flowline .step[data-step="datos"]{--step-color:var(--acc-datos);}
+  .flowline .step[data-step="terminacion"]{--step-color:var(--acc-terminacion);}
+  .flowline .step[data-step="prestaciones"]{--step-color:var(--acc-prestaciones);}
+  .flowline .step[data-step="procedimiento"]{--step-color:var(--acc-procedimiento);}
+  .flowline .step[data-step="calculadora"]{--step-color:var(--acc-calculadora);}
+  .flowline .step[data-step="resumen"]{--step-color:var(--acc-resumen);}
+  .flowline .arrow{color:var(--text-muted); font-size:12px;}
+
+  nav.tabs{display:flex;gap:2px;margin-bottom:0;border-bottom:1px solid var(--line);flex-wrap:wrap;}
+  nav.tabs button{font-family:'IBM Plex Mono', monospace;font-size:12px;letter-spacing:.05em;background:none;border:none;color:var(--text-muted);cursor:pointer;padding:14px 16px 16px;position:relative;text-transform:uppercase;border-bottom:2.5px solid transparent;transition:color .15s ease, border-color .15s ease, background .15s ease;border-radius:4px 4px 0 0;}
+  nav.tabs button .n{
+    display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;
+    background:color-mix(in srgb, var(--tab-color) 20%, transparent); color:var(--tab-color); font-size:10.5px;margin-right:8px;
+    transition:background .15s ease, color .15s ease;
+  }
+  nav.tabs button:hover{color:var(--text-on-dark); background:color-mix(in srgb, var(--tab-color) 10%, transparent);}
+  nav.tabs button.active{color:var(--text-on-dark);border-bottom-color:var(--tab-color); background:color-mix(in srgb, var(--tab-color) 14%, transparent);}
+  nav.tabs button.active .n{background:var(--tab-color); color:#fff;}
+  nav.tabs button .ok{color:var(--acc-prestaciones); margin-left:6px;}
+  nav.tabs button[data-tab="datos"]{--tab-color:var(--acc-datos);}
+  nav.tabs button[data-tab="terminacion"]{--tab-color:var(--acc-terminacion);}
+  nav.tabs button[data-tab="prestaciones"]{--tab-color:var(--acc-prestaciones);}
+  nav.tabs button[data-tab="procedimiento"]{--tab-color:var(--acc-procedimiento);}
+  nav.tabs button[data-tab="calculadora"]{--tab-color:var(--acc-calculadora);}
+  nav.tabs button[data-tab="resumen"]{--tab-color:var(--acc-resumen);}
+
+  .module{display:none;padding-top:34px;}
+  .module.active{display:block;}
+  .module-intro{font-size:13px; color:var(--text-dim); max-width:720px; margin:-18px 0 26px;}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  .grid.single{grid-template-columns:1fr; max-width:640px;}
+  @media (max-width:880px){ .grid{grid-template-columns:1fr;} }
+
+  .card{background:var(--panel);color:var(--ink);border-radius:var(--radius);padding:26px 26px 10px;border:1px solid rgba(18,24,31,0.06);box-shadow:0 20px 40px -20px rgba(0,0,0,0.5);max-height:78vh;overflow-y:auto;}
+  .card h2{font-family:'Spectral',serif;font-size:19px;margin:0 0 4px;font-weight:600;padding-left:12px;border-left:3px solid var(--mod-color, var(--wine));}
+  .card .hint{font-size:12.5px;color:#5b5140;margin:0 0 22px;}
+  fieldset{border:none;margin:0 0 20px;padding:0;}
+  fieldset.sub{margin:-8px 0 20px 14px;padding-left:12px;border-left:2px solid #d8cfb4;}
+  legend{font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mod-color, var(--wine));margin-bottom:9px;padding:0;}
+  .opts{display:flex;flex-wrap:wrap;gap:8px;}
+  .opts label{font-size:13.5px;padding:8px 13px;border:1px solid var(--line-panel);border-radius:20px;cursor:pointer;background:#fff;user-select:none;transition:all .12s ease;color:#332c1f;}
+  .opts input{display:none;}
+  .opts label:has(input:checked){background:var(--mod-color, var(--wine));border-color:var(--mod-color, var(--wine));color:#fff;}
+  .opts label:hover{border-color:var(--mod-color, var(--wine));}
+  .run-btn{width:100%;margin:8px 0 24px;padding:13px 18px;background:var(--ink);color:var(--text-on-dark);border:1px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;border-radius:var(--radius);cursor:pointer;transition:background .15s ease, filter .15s ease;position:sticky;bottom:0;}
+  .run-btn:hover{filter:brightness(1.12);}
+  .run-btn.ghost{background:transparent; color:var(--text-on-dark); border:1px solid var(--brass);}
+  .run-btn.ghost:hover{background:rgba(201,162,39,0.12);}
+  #mod-terminacion .run-btn:not(.ghost):not(.btn-pdf){background:var(--acc-terminacion); border-color:var(--acc-terminacion); color:#fff;}
+  #mod-prestaciones .run-btn:not(.ghost):not(.btn-pdf){background:var(--acc-prestaciones); border-color:var(--acc-prestaciones); color:#fff;}
+  #mod-procedimiento .run-btn:not(.ghost):not(.btn-pdf){background:var(--acc-procedimiento); border-color:var(--acc-procedimiento); color:#151005;}
+  #mod-calculadora .run-btn:not(.ghost):not(.btn-pdf){background:var(--acc-calculadora); border-color:var(--acc-calculadora); color:#fff;}
+  #mod-resumen .run-btn.ghost{border-color:var(--acc-resumen); color:var(--acc-resumen);}
+  #mod-resumen .run-btn.ghost:hover{background:color-mix(in srgb, var(--acc-resumen) 16%, transparent);}
+  .btn-pdf{background:#c0392b !important; border-color:#c0392b !important; color:#ffffff !important; font-weight:600;}
+  .btn-pdf:hover{background:#a5301f !important; filter:none;}
+  .btn-excel{
+    display:inline-flex; align-items:center; gap:7px; margin:8px 0 0; padding:10px 16px;
+    background:#217346; color:#fff; border:none; border-radius:20px; cursor:pointer;
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.05em; text-transform:uppercase;
+    transition:background .2s ease, transform .15s ease; width:100%; justify-content:center;
+  }
+  .btn-excel:hover{background:#195a37; transform:translateY(-1px);}
+
+  #mod-datos{--mod-color:var(--acc-datos);}
+  #mod-terminacion{--mod-color:var(--acc-terminacion);}
+  #mod-prestaciones{--mod-color:var(--acc-prestaciones);}
+  #mod-procedimiento{--mod-color:var(--acc-procedimiento);}
+  #mod-calculadora{--mod-color:var(--acc-calculadora);}
+  #mod-resumen{--mod-color:var(--acc-resumen);}
+
+  .nav-arrow{
+    position:fixed; top:22px; z-index:300; width:46px; height:46px; border-radius:50%;
+    background:var(--ink-2); border:1.5px solid var(--brass); color:var(--brass);
+    font-size:19px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 22px -8px rgba(0,0,0,0.7); transition:background .2s ease, transform .2s ease, color .2s ease;
+  }
+  .nav-arrow:hover{background:var(--brass); color:var(--ink); transform:scale(1.08);}
+  .nav-arrow-left{left:22px;}
+  .nav-arrow-right{right:22px;}
+  @media (max-width:600px){
+    .nav-arrow{width:38px;height:38px;font-size:16px;top:14px;}
+    .nav-arrow-left{left:14px;} .nav-arrow-right{right:14px;}
+  }
+
+  .dictamen{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:26px;min-height:100%;display:flex;flex-direction:column;max-height:78vh;overflow-y:auto;}
+  .dictamen .head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+  .dictamen h2{font-family:'Spectral',serif;font-size:19px;margin:0;font-weight:600;}
+  .status-pill{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:20px;border:1px solid var(--mod-color, var(--brass));color:var(--mod-color, var(--brass));}
+  .empty-state{margin:auto;text-align:center;color:var(--text-muted);font-size:13.5px;padding:40px 10px;}
+  .empty-state .glyph{font-family:'Spectral',serif;font-size:34px;color:var(--brass-dim);margin-bottom:10px;}
+
+  .conclusion{font-family:'Spectral',serif;font-size:16.5px;line-height:1.5;color:var(--text-on-dark);padding:16px 18px;background:rgba(201,162,39,0.08);border-left:2px solid var(--brass);margin-bottom:20px;}
+  .conclusion b{color:var(--brass);}
+  .warn{border-left-color:var(--alert);background:rgba(179,69,47,0.16);}
+  .warn b{color:var(--alert-2);}
+
+  .rules-title{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin:18px 0 12px;}
+  .rules-title:first-of-type{margin-top:0;}
+  ol.motivacion{list-style:none;margin:0 0 4px;padding:0;counter-reset:rule;}
+  ol.motivacion li{counter-increment:rule;display:grid;grid-template-columns:26px 1fr;gap:10px;padding:12px 0;border-top:1px solid var(--line);font-size:13.5px;}
+  ol.motivacion li::before{content:counter(rule, decimal-leading-zero);font-family:'IBM Plex Mono',monospace;color:var(--brass-dim);font-size:12px;padding-top:2px;}
+  ol.motivacion li p{margin:0 0 4px;color:#d7d2c2;}
+  ol.motivacion li .art{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--brass);}
+  .checklist{margin:0 0 8px;padding:0;list-style:none;}
+  .checklist li{font-size:13px;padding:7px 0 7px 22px;position:relative;color:#cfd0c8;border-top:1px solid var(--line);}
+  .checklist li::before{content:"—";position:absolute;left:0;color:var(--brass-dim);}
+  .footnote{font-size:11.5px;color:var(--text-muted);margin-top:16px;padding-top:18px;border-top:1px solid var(--line);}
+
+  .resumen-block{margin-bottom:30px; padding-bottom:26px; border-bottom:1px solid var(--line);}
+  .resumen-block:last-child{border-bottom:none;}
+  .resumen-block h3{font-family:'Spectral',serif; font-size:17px; color:var(--brass); margin:0 0 10px; display:flex; align-items:center; gap:10px;}
+  .resumen-block h3 .idx{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--brass-dim); border:1px solid var(--brass-dim); border-radius:50%; width:20px;height:20px; display:flex; align-items:center;justify-content:center;}
+  .resumen-block .missing{color:var(--text-muted); font-size:13px; font-style:italic;}
+  .resumen-block p.rc{font-family:'Spectral',serif; font-size:15px; line-height:1.55; color:var(--text-on-dark);}
+  .resumen-block ul{margin:6px 0 0; padding-left:18px; font-size:12.5px; color:var(--text-dim);}
+  .qa-group{margin:4px 0 18px;}
+  .qa-group h4{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--wine-2);margin:0 0 4px;padding-top:12px;border-top:1px solid var(--line);}
+  .qa-group:first-child h4{padding-top:0;border-top:none;}
+  .qa-item{padding:9px 0;border-top:1px solid var(--line);}
+  .qa-item:first-of-type{border-top:none;}
+  .qa-item .q{font-size:12px;color:var(--text-muted);margin:0 0 3px;}
+  .qa-item .a{font-family:'Spectral',serif;font-size:14.5px;color:var(--text-on-dark);margin:0;}
+  .derecho-list{list-style:none;margin:0;padding:0;}
+  .derecho-list li{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--brass);padding:6px 0;border-top:1px solid var(--line);}
+  .derecho-list li:first-child{border-top:none;}
+  ol.documentos{list-style:none; margin:6px 0 0; padding:0;}
+  ol.documentos li{padding:9px 0; border-top:1px solid var(--line); font-size:13px; color:#d7d2c2; line-height:1.5;}
+  ol.documentos li:first-child{border-top:none;}
+
+  *:focus-visible{outline:2px solid var(--brass); outline-offset:2px;}
+  .card, .dictamen{transition: box-shadow .2s ease, transform .2s ease;}
+  select:focus, .opts label:has(input:focus-visible){outline:2px solid var(--wine-2); outline-offset:1px;}
+  .back-link{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;margin-bottom:18px;transition:color .2s ease;}
+  .back-link:hover, .back-link:focus-visible{color:var(--brass);}
+
+  footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-size:12px;color:var(--text-muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  #print-area{display:none;}
+  .btn-descarga-modulo{
+    display:inline-flex; align-items:center; gap:7px; margin:0 0 18px; padding:10px 16px;
+    background:#c0392b; color:#fff; border:none; border-radius:20px; cursor:pointer;
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.05em; text-transform:uppercase;
+    transition:background .2s ease, transform .15s ease;
+  }
+  .btn-descarga-modulo:hover{background:#a5301f; transform:translateY(-1px);}
+
+  @media print{
+    body{background:#fff !important;}
+    body.print-mode > *:not(#print-area){display:none !important;}
+    body.print-mode #print-area{
+      display:block !important; color:#111; background:#fff; font-family:'IBM Plex Sans',sans-serif;
+      max-width:800px; margin:0 auto; padding:20px;
+    }
+    #print-area h1{font-family:'Spectral',serif;color:#12181f;font-size:22px;margin-bottom:2px;}
+    #print-area .print-sub{color:#666;font-size:11.5px;margin-bottom:16px;border-bottom:1px solid #ccc;padding-bottom:12px;}
+    #print-area .conclusion{background:#f2f2f2 !important;color:#111 !important;border-left:3px solid #c9a227;padding:12px 14px;margin-bottom:14px;font-family:'Spectral',serif;}
+    #print-area h3, #print-area h4{color:#12181f;font-family:'Spectral',serif;margin:16px 0 6px;}
+    #print-area p, #print-area li{color:#222;font-size:12.5px;line-height:1.6;}
+    #print-area table{width:100%;border-collapse:collapse;}
+    #print-area td, #print-area th{color:#111 !important;border-top:1px solid #ddd;padding:6px 4px;}
+    #print-area .art{color:#8f7326;font-family:'IBM Plex Mono',monospace;font-size:11px;}
+    .no-print{display:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<button class="nav-arrow nav-arrow-left" onclick="window.history.back()" aria-label="Regresar a la página anterior" title="Regresar">←</button>
+<button class="nav-arrow nav-arrow-right" onclick="window.history.forward()" aria-label="Avanzar a la página siguiente" title="Avanzar">→</button>
+
+<div class="wrap">
+
+  <a href="orientacion-legal.html" class="back-link">← Materias legales</a>
+
+  <header>
+    <div class="titleblock">
+      <p class="eyebrow">Motor de reglas · Derecho laboral federal</p>
+      <h1 class="brandname">Sistema experto de despido, liquidación y prescripción laboral</h1>
+      <p class="tagline">Terminación laboral · Prestaciones y finiquito · Procedimiento y plazos</p>
+      <p class="sub">Ley Federal del Trabajo, texto vigente (última reforma DOF 21/02/2025). Los datos del caso se capturan una sola vez y alimentan, en orden, cada módulo del expediente.</p>
+    </div>
+    <div class="seal">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="sealBg" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="#2e6cc4" stop-opacity="0.45"/>
+            <stop offset="55%" stop-color="#12233d" stop-opacity="0.75"/>
+            <stop offset="100%" stop-color="#081526" stop-opacity="0.95"/>
+          </radialGradient>
+          <linearGradient id="goldLine" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#f5dd94"/><stop offset="100%" stop-color="#a3821f"/>
+          </linearGradient>
+        </defs>
+        <circle cx="100" cy="100" r="94" fill="url(#sealBg)" stroke="url(#goldLine)" stroke-width="1.5"/>
+        <g stroke="#c9a227" stroke-width="1" opacity="0.55">
+          <line x1="100" y1="6" x2="100" y2="20"/><line x1="170" y1="40" x2="158" y2="50"/>
+          <line x1="30" y1="40" x2="42" y2="50"/><line x1="180" y1="120" x2="166" y2="122"/><line x1="20" y1="120" x2="34" y2="122"/>
+        </g>
+        <g fill="#d4af37" opacity="0.85">
+          <circle cx="100" cy="6" r="2.2"/><circle cx="170" cy="40" r="2.2"/><circle cx="30" cy="40" r="2.2"/>
+          <circle cx="180" cy="120" r="2.2"/><circle cx="20" cy="120" r="2.2"/>
+        </g>
+        <g stroke="url(#goldLine)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="70" y="55" width="60" height="42" rx="3" fill="rgba(212,175,55,0.10)"/>
+          <line x1="100" y1="97" x2="100" y2="140"/>
+          <line x1="62" y1="140" x2="138" y2="140"/>
+          <line x1="80" y1="72" x2="120" y2="72"/>
+          <line x1="80" y1="84" x2="112" y2="84"/>
+        </g>
+      </svg>
+    </div>
+  </header>
+
+  <div class="disclaimer">
+    <div class="mark">!</div>
+    <p><strong>Herramienta de apoyo al criterio profesional, no sustituto de la función jurisdiccional.</strong> El motor razona sobre los hechos capturados y no valora prueba ni contexto probatorio del expediente real. Los montos de indemnización, finiquito y prima de antigüedad son formulas orientativas de la ley, no un cálculo con pesos exactos: la cuantificación final depende del salario integrado real y de lo que se acredite en el procedimiento.</p>
+  </div>
+
+  <div class="flowline" id="flowline">
+    <span class="step" data-step="datos">0 · Datos del caso</span><span class="arrow">→</span>
+    <span class="step" data-step="terminacion">1 · Terminación laboral</span><span class="arrow">→</span>
+    <span class="step" data-step="prestaciones">2 · Prestaciones y finiquito</span><span class="arrow">→</span>
+    <span class="step" data-step="procedimiento">3 · Procedimiento y plazos</span><span class="arrow">→</span>
+    <span class="step" data-step="calculadora">4 · Calculadora de liquidación</span><span class="arrow">→</span>
+    <span class="step" data-step="resumen">5 · Expediente integrado</span>
+  </div>
+
+  <nav class="tabs">
+    <button class="active" data-tab="datos"><span class="n">00</span>Datos del caso</button>
+    <button data-tab="terminacion"><span class="n">01</span>Terminación laboral</button>
+    <button data-tab="prestaciones"><span class="n">02</span>Prestaciones y finiquito</button>
+    <button data-tab="procedimiento"><span class="n">03</span>Procedimiento y plazos</button>
+    <button data-tab="calculadora"><span class="n">04</span>Calculadora de liquidación</button>
+    <button data-tab="resumen"><span class="n">05</span>Expediente integrado</button>
+  </nav>
+
+  <!-- ================= 00: DATOS GENERALES ================= -->
+  <section class="module active" id="mod-datos">
+    <p class="module-intro">Estos datos son compartidos por los tres módulos siguientes: se capturan una sola vez para evitar preguntas repetidas.</p>
+    <button class="btn-descarga-modulo" onclick="descargarPDF('datos')">⬇ Descargar datos del caso en PDF</button>
+    <div class="grid">
+      <div class="card">
+        <h2>La separación del empleo</h2>
+        <fieldset>
+          <legend>¿Cómo terminó la relación laboral?</legend>
+          <div class="opts">
+            <label><input type="radio" name="g_tipo" value="despido_sin_aviso" checked><span>Despido sin aviso escrito</span></label>
+            <label><input type="radio" name="g_tipo" value="despido_con_aviso"><span>Despido con aviso escrito de causa</span></label>
+            <label><input type="radio" name="g_tipo" value="renuncia"><span>Renuncia voluntaria</span></label>
+            <label><input type="radio" name="g_tipo" value="mutuo"><span>Mutuo consentimiento</span></label>
+            <label><input type="radio" name="g_tipo" value="sigue"><span>Sigue trabajando (aún no termina)</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="sub" id="g_causa_fs">
+          <legend>¿Está de acuerdo en que existió esa causa?</legend>
+          <div class="opts">
+            <label><input type="radio" name="g_causa" value="deacuerdo"><span>Sí, hubo causa real</span></label>
+            <label><input type="radio" name="g_causa" value="injustificado" checked><span>No, considero que fue injustificado</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>¿Es trabajador de confianza?</legend>
+          <div class="opts">
+            <label><input type="radio" name="g_confianza" value="si"><span>Sí</span></label>
+            <label><input type="radio" name="g_confianza" value="no" checked><span>No</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Antigüedad en el empleo</legend>
+          <div class="opts">
+            <label><input type="radio" name="g_antiguedad" value="menos1"><span>Menos de 1 año</span></label>
+            <label><input type="radio" name="g_antiguedad" value="1a5" checked><span>1 a 5 años</span></label>
+            <label><input type="radio" name="g_antiguedad" value="5a15"><span>5 a 15 años</span></label>
+            <label><input type="radio" name="g_antiguedad" value="15mas"><span>15 años o más</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>¿Firmó contrato individual de trabajo por escrito?</legend>
+          <div class="opts">
+            <label><input type="radio" name="g_contrato" value="si"><span>Sí</span></label>
+            <label><input type="radio" name="g_contrato" value="no" checked><span>No</span></label>
+            <label><input type="radio" name="g_contrato" value="nosabe"><span>No sabe</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>¿Estaba inscrito en el IMSS por este empleo?</legend>
+          <div class="opts">
+            <label><input type="radio" name="g_imss" value="si" checked><span>Sí</span></label>
+            <label><input type="radio" name="g_imss" value="no"><span>No</span></label>
+            <label><input type="radio" name="g_imss" value="nosabe"><span>No sabe</span></label>
+          </div>
+        </fieldset>
+        <fieldset id="g_oficio_fs">
+          <legend>¿Qué oficio desempeñaste?</legend>
+          <select id="g_oficio" style="width:100%;padding:10px 12px;border-radius:3px;border:1px solid var(--line-panel);background:#fff;font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;color:#332c1f;"></select>
+          <p class="hint" style="margin:6px 0 0;">Listado conforme al catálogo de profesiones, oficios y trabajos especiales de la CONASAMI (art. 93 LFT). Si el suyo no aparece, elija "Otro oficio".</p>
+        </fieldset>
+        <fieldset class="sub" id="g_oficio_otro_fs" style="display:none;">
+          <legend>Especifique el oficio</legend>
+          <input type="text" id="g_oficio_otro" placeholder="Escriba el oficio o actividad" style="width:100%;padding:10px 12px;border-radius:3px;border:1px solid var(--line-panel);font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;">
+        </fieldset>
+        <fieldset>
+          <legend>¿Cuenta con recibos de nómina?</legend>
+          <div class="opts">
+            <label><input type="radio" name="g_recibo_nomina" value="si" checked><span>a) Sí</span></label>
+            <label><input type="radio" name="g_recibo_nomina" value="no"><span>b) No</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>¿Con qué periodicidad recibía el pago?</legend>
+          <div class="opts">
+            <label><input type="radio" name="g_periodicidad" value="diario"><span>a) Diario</span></label>
+            <label><input type="radio" name="g_periodicidad" value="semanal"><span>b) Semanal</span></label>
+            <label><input type="radio" name="g_periodicidad" value="quincenal" checked><span>c) Quincenal</span></label>
+            <label><input type="radio" name="g_periodicidad" value="mensual"><span>d) Mensual</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>¿De qué manera se efectuaba su pago?</legend>
+          <div class="opts">
+            <label><input type="radio" name="g_forma_pago" value="transferencia" checked><span>a) Transferencia bancaria</span></label>
+            <label><input type="radio" name="g_forma_pago" value="efectivo"><span>b) Efectivo</span></label>
+            <label><input type="radio" name="g_forma_pago" value="cheque"><span>c) Cheque nominativo</span></label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="card">
+        <h2>Tiempo, prestaciones y trámite</h2>
+        <fieldset id="g_tiempo_fs">
+          <legend>¿Cuánto tiempo ha pasado desde la separación?</legend>
+          <div class="opts">
+            <label><input type="radio" name="g_tiempo" value="menos2m" checked><span>Menos de 2 meses</span></label>
+            <label><input type="radio" name="g_tiempo" value="mas2m"><span>Más de 2 meses</span></label>
+          </div>
+        </fieldset>
+        <fieldset id="g_conciliacion_fs">
+          <legend>¿Ya acudió al Centro de Conciliación?</legend>
+          <div class="opts">
+            <label><input type="radio" name="g_conciliacion" value="si"><span>Sí</span></label>
+            <label><input type="radio" name="g_conciliacion" value="no" checked><span>No</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>¿Existen hechos de acoso, discriminación o violencia laboral asociados?</legend>
+          <div class="opts">
+            <label><input type="radio" name="g_violencia" value="si"><span>Sí</span></label>
+            <label><input type="radio" name="g_violencia" value="no" checked><span>No</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>¿Tomó todas sus vacaciones del último año trabajado?</legend>
+          <div class="opts">
+            <label><input type="radio" name="g_vacaciones" value="si"><span>Sí, completas</span></label>
+            <label><input type="radio" name="g_vacaciones" value="parcial"><span>Parcialmente</span></label>
+            <label><input type="radio" name="g_vacaciones" value="no" checked><span>No</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>¿Le pagaron el aguinaldo proporcional del año en que terminó?</legend>
+          <div class="opts">
+            <label><input type="radio" name="g_aguinaldo" value="si"><span>Sí</span></label>
+            <label><input type="radio" name="g_aguinaldo" value="no" checked><span>No</span></label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <p class="module-intro" style="margin-top:10px;">Con estos datos capturados, avance a la pestaña <strong>01 · Terminación laboral</strong> para generar el primer dictamen del expediente.</p>
+  </section>
+
+  <!-- ================= 01: TERMINACIÓN LABORAL ================= -->
+  <section class="module" id="mod-terminacion">
+    <p class="module-intro">Determina si la separación es justificada o injustificada, y si procede la reinstalación o solo la indemnización, a partir de los datos generales.</p>
+    <button class="btn-descarga-modulo" onclick="descargarPDF('terminacion')">⬇ Descargar dictamen en PDF</button>
+    <div class="grid single">
+      <div class="card" style="max-height:none;">
+        <h2>Confirmar y generar</h2>
+        <p class="hint">Este módulo usa exclusivamente los datos ya capturados: tipo de terminación, acuerdo sobre la causa, confianza y antigüedad.</p>
+        <button class="run-btn" onclick="runTerminacion()">Generar dictamen de terminación laboral</button>
+      </div>
+    </div>
+    <div class="grid" style="margin-top:22px;">
+      <div class="dictamen" id="out-terminacion" style="grid-column:1 / -1; max-height:none;">
+        <div class="head"><h2>Dictamen</h2><span class="status-pill">en espera</span></div>
+        <div class="empty-state"><div class="glyph">§</div>Presione "Generar dictamen" para ver si la separación es justificada o injustificada, y su motivación.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 02: PRESTACIONES ================= -->
+  <section class="module" id="mod-prestaciones">
+    <p class="module-intro">Usa los datos generales (tipo de terminación, antigüedad, vacaciones, aguinaldo) para identificar qué prestaciones corresponden.</p>
+    <button class="btn-descarga-modulo" onclick="descargarPDF('prestaciones')">⬇ Descargar dictamen en PDF</button>
+    <div class="grid single">
+      <div class="card" style="max-height:none;">
+        <h2>Confirmar y generar</h2>
+        <p class="hint">No requiere información adicional a la ya capturada en 00 · Datos del caso.</p>
+        <button class="run-btn" onclick="runPrestaciones()">Generar dictamen de prestaciones y finiquito</button>
+      </div>
+    </div>
+    <div class="grid" style="margin-top:22px;">
+      <div class="dictamen" id="out-prestaciones" style="grid-column:1 / -1; max-height:none;">
+        <div class="head"><h2>Dictamen</h2><span class="status-pill">en espera</span></div>
+        <div class="empty-state"><div class="glyph">§</div>Presione "Generar dictamen" para ver qué prestaciones corresponden y su fundamento.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 03: PROCEDIMIENTO Y PLAZOS ================= -->
+  <section class="module" id="mod-procedimiento">
+    <p class="module-intro">Evalúa el plazo de prescripción y la vía procesal a partir del tiempo transcurrido desde la separación.</p>
+    <button class="btn-descarga-modulo" onclick="descargarPDF('procedimiento')">⬇ Descargar dictamen en PDF</button>
+    <div class="grid single">
+      <div class="card" style="max-height:none;">
+        <h2>Confirmar y generar</h2>
+        <p class="hint">No requiere información adicional a la ya capturada en 00 · Datos del caso.</p>
+        <button class="run-btn" onclick="runProcedimiento()">Generar dictamen de procedimiento y plazos</button>
+      </div>
+    </div>
+    <div class="grid" style="margin-top:22px;">
+      <div class="dictamen" id="out-procedimiento" style="grid-column:1 / -1; max-height:none;">
+        <div class="head"><h2>Dictamen</h2><span class="status-pill">en espera</span></div>
+        <div class="empty-state"><div class="glyph">§</div>Presione "Generar dictamen" para ver el plazo aplicable y la vía procesal.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 04: CALCULADORA DE LIQUIDACIÓN ================= -->
+  <section class="module" id="mod-calculadora">
+    <p class="module-intro">Calculadora de referencia, similar a las que publican los Centros de Conciliación Laboral: estima en pesos el finiquito y, en su caso, la indemnización por despido injustificado. No sustituye el cálculo con el salario diario integrado real que se haga en el procedimiento.</p>
+    <button class="btn-descarga-modulo" onclick="descargarPDF('calculadora')">⬇ Descargar cálculo en PDF</button>
+    <button class="btn-excel" style="width:auto;display:inline-flex;margin:0 0 18px 10px;" onclick="descargarExcelCalculadora()">⬇ Descargar cálculo en Excel</button>
+    <div class="grid">
+      <div class="card">
+        <h2>Datos para el cálculo</h2>
+        <fieldset>
+          <legend>¿Cómo recibe su salario?</legend>
+          <div class="opts">
+            <label><input type="radio" name="calc_periodo" value="1" checked><span>a) Diario</span></label>
+            <label><input type="radio" name="calc_periodo" value="7"><span>b) Semanal</span></label>
+            <label><input type="radio" name="calc_periodo" value="14"><span>c) Catorcenal</span></label>
+            <label><input type="radio" name="calc_periodo" value="15"><span>d) Quincenal</span></label>
+            <label><input type="radio" name="calc_periodo" value="30.4"><span>e) Mensual</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend id="calc_salario_legend">Monto que recibe por ese periodo (MXN)</legend>
+          <input type="number" id="calc_salario" min="0" step="0.01" placeholder="Ej. 450.00" style="width:100%;padding:10px 12px;border-radius:3px;border:1px solid var(--line-panel);font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;">
+          <p class="hint" id="calc_salario_equiv" style="margin:6px 0 0;"></p>
+        </fieldset>
+        <fieldset>
+          <legend>Zona de salario mínimo (para el tope de la prima de antigüedad)</legend>
+          <div class="opts">
+            <label><input type="radio" name="calc_zona" value="315.04" checked><span>Zona general ($315.04)</span></label>
+            <label><input type="radio" name="calc_zona" value="440.87"><span>Frontera Norte ($440.87)</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Fecha de ingreso</legend>
+          <input type="date" id="calc_ingreso" style="width:100%;padding:10px 12px;border-radius:3px;border:1px solid var(--line-panel);font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;">
+        </fieldset>
+        <fieldset>
+          <legend>Fecha de salida</legend>
+          <input type="date" id="calc_salida" style="width:100%;padding:10px 12px;border-radius:3px;border:1px solid var(--line-panel);font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;">
+        </fieldset>
+        <fieldset>
+          <legend>Tipo de terminación</legend>
+          <div class="opts">
+            <label><input type="radio" name="calc_tipo" value="injustificado" checked><span>Despido injustificado</span></label>
+            <label><input type="radio" name="calc_tipo" value="justificado"><span>Despido justificado</span></label>
+            <label><input type="radio" name="calc_tipo" value="renuncia"><span>Renuncia voluntaria</span></label>
+            <label><input type="radio" name="calc_tipo" value="mutuo"><span>Mutuo consentimiento</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Días de vacaciones del año en curso ya disfrutados (opcional)</legend>
+          <input type="number" id="calc_vac_tomadas" min="0" step="1" value="0" style="width:100%;padding:10px 12px;border-radius:3px;border:1px solid var(--line-panel);font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;">
+        </fieldset>
+        <fieldset>
+          <legend>¿Ya le pagaron el aguinaldo proporcional de este año?</legend>
+          <div class="opts">
+            <label><input type="radio" name="calc_aguinaldo_pagado" value="no" checked><span>No</span></label>
+            <label><input type="radio" name="calc_aguinaldo_pagado" value="si"><span>Sí</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Días trabajados y no pagados al momento de la salida (opcional)</legend>
+          <input type="number" id="calc_dias_pendientes" min="0" step="1" value="0" style="width:100%;padding:10px 12px;border-radius:3px;border:1px solid var(--line-panel);font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;">
+        </fieldset>
+
+        <fieldset>
+          <legend>Políticas y términos de uso de la calculadora</legend>
+          <div style="background:#fff;border:1px solid var(--line-panel);border-radius:3px;padding:14px 16px;font-size:12.5px;line-height:1.6;color:#4a4231;max-height:160px;overflow-y:auto;margin-bottom:12px;">
+            Al utilizar esta calculadora estoy consciente que las cantidades que arroja son un cálculo aproximado y no una cantidad exacta ni definitiva de las prestaciones a las que tengo derecho en caso de haber sido despedido injustificadamente, pues se trata de un monto que deriva de los datos que yo proporciono, el cual puede variar atendiendo a la información que se aporte en la audiencia conciliatoria. También entiendo que dicha cantidad sólo considera los conceptos de indemnización constitucional, prima de antigüedad, así como vacaciones, aguinaldo proporcionales al último año laborado y prima vacacional.
+          </div>
+          <label style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#332c1f;cursor:pointer;">
+            <input type="checkbox" id="calc_acepto_terminos" style="margin-top:3px;">
+            <span>Acepto que leí y comprendo los términos de uso. <span style="color:var(--wine);">(Obligatorio)</span></span>
+          </label>
+          <p id="calc_terminos_msg" style="display:none;color:var(--wine);font-size:12px;margin-top:6px;">Debe aceptar los términos de uso para poder utilizar la calculadora.</p>
+        </fieldset>
+
+        <button class="run-btn" onclick="calcularLiquidacion()">Calcular</button>
+      </div>
+
+      <div class="dictamen" id="out-calculadora">
+        <div class="head"><h2>Resultado</h2><span class="status-pill">en espera</span></div>
+        <div class="empty-state"><div class="glyph">$</div>Complete el salario y las fechas, y presione "Calcular" para ver el desglose estimado.</div>
+      </div>
+    </div>
+  </section>
+  <section class="module" id="mod-resumen">
+    <p class="module-intro">Compila, en el orden lógico del expediente, los dictámenes ya generados en los módulos 01 a 03.</p>
+    <button class="btn-descarga-modulo" onclick="descargarPDF('resumen')">⬇ Descargar expediente completo en PDF</button>
+    <button class="btn-excel" style="width:auto;display:inline-flex;margin:0 0 18px 10px;" onclick="descargarExcelExpediente()">⬇ Descargar expediente completo en Excel</button>
+    <div class="grid single">
+      <div class="card" style="max-height:none;">
+        <h2>Compilar</h2>
+        <p class="hint">Genere primero los dictámenes pendientes en sus respectivas pestañas; los que falten se señalarán aquí.</p>
+        <button class="run-btn ghost" onclick="runResumen()">Compilar expediente integrado</button>
+      </div>
+    </div>
+    <div class="dictamen" id="out-resumen" style="margin-top:22px; max-height:none;">
+      <div class="head"><h2>Expediente integrado</h2><span class="status-pill">en espera</span></div>
+      <div class="empty-state"><div class="glyph">§</div>Compile el expediente una vez generados los dictámenes de los módulos anteriores.</div>
+    </div>
+
+    <div class="grid single" style="margin-top:28px;">
+      <div class="card" style="max-height:none;">
+        <h2>Automatización</h2>
+        <p class="hint">Exporte el expediente como base de datos estructurada, o genere un proyecto de demanda con inteligencia artificial a partir de esos mismos datos. Compile primero el expediente arriba.</p>
+        <fieldset style="margin-top:18px;">
+          <legend>Clave de acceso (solo para uso propio)</legend>
+          <input type="password" id="admin_password" placeholder="Tu contraseña" style="width:100%;padding:10px 12px;border-radius:3px;border:1px solid var(--line-panel);font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;">
+          <p class="hint" style="margin:6px 0 0;">Se guarda solo en este navegador para no volver a escribirla. La verificación real ocurre en el servidor, no aquí.</p>
+        </fieldset>
+        <button class="run-btn ghost" onclick="descargarXML()">⬇ Descargar base de datos del expediente (XML)</button>
+        <button class="run-btn" style="background:var(--acc-resumen);border-color:var(--acc-resumen);color:#fff;" onclick="generarDemandaIA()">✦ Generar proyecto de demanda con IA</button>
+      </div>
+    </div>
+    <div class="dictamen" id="out-demanda-ia" style="margin-top:22px; max-height:none; display:none;">
+      <div class="head"><h2>Proyecto de demanda (IA)</h2><span class="status-pill">en espera</span></div>
+      <div class="empty-state"><div class="glyph">✦</div>Presione "Generar proyecto de demanda con IA" para redactar un borrador.</div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Fuente normativa: Ley Federal del Trabajo, texto vigente (última reforma DOF 21/02/2025).</span>
+    <span>Sistema de apoyo — no constituye resolución judicial.</span>
+  </footer>
+
+</div>
+
+<div id="print-area"></div>
+
+<script>
+const store = {};
+
+/* Catálogo de profesiones, oficios y trabajos especiales — CONASAMI (art. 93 LFT), orden alfabético */
+const catalogoOficios = [
+  "Albañilería",
+  "Boticas, farmacias y droguería, dependiente(a) de mostrador",
+  "Buldózer y/o traxcavo, operador(a)",
+  "Cajero(a) de máquina registradora",
+  "Cantinero(a) preparador(a) de bebidas",
+  "Carpintero(a) en la fabricación y reparación de muebles",
+  "Chofer acomodador(a) de automóviles en estacionamientos",
+  "Chofer de camión de carga en general",
+  "Chofer de camioneta de carga en general",
+  "Chofer operador(a) de vehículos con grúa",
+  "Cocinero(a) mayor(a) en restaurantes, fondas y demás establecimientos de preparación y venta de alimentos",
+  "Colchones, oficial en fabricación y reparación",
+  "Colocador(a) de mosaicos y azulejos",
+  "Construcción de edificios y casas habitación, yesero(a)",
+  "Cortador(a) en talleres y fábricas de manufactura de calzado",
+  "Costurero(a) en confección de ropa en trabajo a domicilio",
+  "Draga, operador(a)",
+  "Ebanista en fabricación y reparación de muebles",
+  "Electricista en la reparación de automóviles y camiones",
+  "Electricista reparador(a) de motores y/o generadores en talleres de servicio",
+  "Empleado(a) de góndola, anaquel o sección en tienda de autoservicio",
+  "Encargado(a) de bodega y/o almacén",
+  "Ferreterías y tlapalerías, dependiente(a)",
+  "Fogonero(a) de calderas de vapor",
+  "Gasolinero(a)",
+  "Herrería",
+  "Hojalatero(a) en la reparación de automóviles y camiones",
+  "Jornalero(a) agrícola",
+  "Lubricador(a) de automóviles, camiones y otros vehículos de motor",
+  "Manejador(a) en granja avícola",
+  "Maquinaria agrícola, operador(a) de",
+  "Máquinas para madera en general, operador(a) de",
+  "Mecánico(a) en reparación de automóviles y camiones",
+  "Montador(a) en talleres y fábricas de calzado",
+  "Peluquero(a) y cultor(a) de belleza",
+  "Pintor(a) de automóviles y camiones",
+  "Pintor(a) de casas, edificios y construcciones en general",
+  "Planchador(a) a máquina en tintorerías, lavanderías y establecimientos similares",
+  "Plomero(a) en instalaciones sanitarias",
+  "Radiotécnico(a) reparador(a) de aparatos eléctricos y electrónicos",
+  "Recamarero(a) en hoteles, moteles y otros establecimientos de hospedaje",
+  "Refaccionaria de automóviles y camiones, dependiente(a) de mostrador",
+  "Reparador(a) de aparatos eléctricos para el hogar",
+  "Reportero(a) en prensa diaria impresa",
+  "Reportero(a) gráfico(a) en prensa diaria impresa",
+  "Repostero(a) o pastelero(a)",
+  "Sastrería en trabajo a domicilio",
+  "Secretario(a) auxiliar",
+  "Soldador(a) con soplete o con arco eléctrico",
+  "Tablajero(a) y/o carnicero(a) en mostrador",
+  "Tapicero(a) de vestiduras de automóviles",
+  "Tapicero(a) en reparación de muebles",
+  "Trabajador(a) del hogar",
+  "Trabajador(a) social, técnico(a)",
+  "Vaquero(a) ordeñador(a) a máquina",
+  "Velador(a)",
+  "Vendedor(a) de piso de aparatos de uso doméstico",
+  "Zapatero(a) en talleres de reparación de calzado"
+].sort((a,b)=>a.localeCompare(b,'es'));
+
+function populateOficios(){
+  const sel = document.getElementById('g_oficio');
+  let html = catalogoOficios.map(o=>'<option value="'+o+'">'+o+'</option>').join('');
+  html += '<option value="otro">Otro oficio</option>';
+  sel.innerHTML = html;
+}
+function onOficioChange(){
+  const otroFs = document.getElementById('g_oficio_otro_fs');
+  otroFs.style.display = document.getElementById('g_oficio').value==='otro' ? 'block' : 'none';
+}
+
+document.querySelectorAll('nav.tabs button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.module').forEach(m=>m.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('mod-'+btn.dataset.tab).classList.add('active');
+    document.querySelectorAll('.flowline .step').forEach(s=>s.style.opacity = s.dataset.step===btn.dataset.tab ? '1' : (s.classList.contains('done') ? '1' : '.62'));
+  });
+});
+function markDone(step){
+  const el = document.querySelector('.flowline .step[data-step="'+step+'"]');
+  if(el) el.classList.add('done');
+  const tabBtn = document.querySelector('nav.tabs button[data-tab="'+step+'"] .n');
+  if(tabBtn && !tabBtn.parentElement.querySelector('.ok')) tabBtn.insertAdjacentHTML('afterend','<span class="ok">✓</span>');
+}
+
+/* ================= DESCARGA DE PDF POR MÓDULO ================= */
+const tituloModulo = {
+  datos:'Datos del caso', terminacion:'Terminación laboral', prestaciones:'Prestaciones y finiquito',
+  procedimiento:'Procedimiento y plazos', calculadora:'Calculadora de liquidación', resumen:'Expediente integrado'
+};
+function buildPrintContent(step){
+  let html = '<h1>JUSTICIA MEXA PARA TODOS — '+tituloModulo[step]+'</h1>';
+  html += '<p class="print-sub">Sistema experto de despido, liquidación y prescripción laboral · Ley Federal del Trabajo · Fecha: '+new Date().toLocaleDateString('es-MX',{year:'numeric',month:'long',day:'numeric'})+'</p>';
+
+  if(step==='datos'){
+    const grupos = buildPreguntasRespuestas();
+    grupos.slice(0,2).forEach(g=>{
+      html += '<h3>'+g.titulo+'</h3>';
+      g.items.forEach(it=>{ html += '<p><b>'+it.q+'</b><br>'+it.a+'</p>'; });
+    });
+    if(grupos.slice(0,2).every(g=>!g.items.length)) html += '<p>Aún no se han capturado datos del caso.</p>';
+  } else if(step==='calculadora'){
+    const out = document.getElementById('out-calculadora');
+    if(!out.querySelector('table')){
+      html += '<p>Aún no se ha generado un cálculo. Vaya a la pestaña "Calculadora de liquidación", complete los datos y presione "Calcular".</p>';
+    } else {
+      const clone = out.cloneNode(true);
+      clone.querySelectorAll('.no-print').forEach(n=>n.remove());
+      html += clone.innerHTML;
+    }
+  } else if(step==='resumen'){
+    const out = document.getElementById('out-resumen');
+    if(!out.querySelector('.resumen-block')){
+      html += '<p>Aún no se ha compilado el expediente. Vaya a la pestaña "Expediente integrado" y presione "Compilar".</p>';
+    } else {
+      html += out.innerHTML;
+    }
+  } else {
+    const r = store[step];
+    if(!r){
+      html += '<p>Aún no se ha generado el dictamen de este módulo. Vaya a la pestaña correspondiente y presione "Generar dictamen".</p>';
+    } else {
+      html += '<div class="conclusion">'+r.conclusionHTML+'</div>';
+      html += '<h4>Motivación — reglas aplicadas</h4><ol>';
+      r.rules.forEach(x=>{ html += '<li style="margin-bottom:8px;">'+x.text+' <span class="art">('+x.art+')</span></li>'; });
+      html += '</ol>';
+      if(r.checklist && r.checklist.length){
+        html += '<h4>Elementos a integrar en el expediente</h4><ul>';
+        r.checklist.forEach(c=>{ html += '<li>'+c+'</li>'; });
+        html += '</ul>';
+      }
+    }
+  }
+  return html;
+}
+function descargarPDF(step){
+  document.getElementById('print-area').innerHTML = buildPrintContent(step);
+  document.body.classList.add('print-mode');
+  window.print();
+  setTimeout(()=>document.body.classList.remove('print-mode'), 600);
+}
+
+
+function getVal(name){
+  const el = document.querySelector('input[name="'+name+'"]:checked');
+  return el ? el.value : null;
+}
+function renderDictamen(targetId, moduleKey, conclusionHTML, rules, checklist, extraFoot, warnConclusion){
+  store[moduleKey] = {conclusionHTML, rules, checklist: checklist||[], extraFoot, warn: !!warnConclusion};
+  markDone(moduleKey);
+  const el = document.getElementById(targetId);
+  let html = '<div class="head"><h2>Dictamen</h2><span class="status-pill">resuelto</span></div>';
+  html += '<div class="conclusion'+(warnConclusion?' warn':'')+'">'+conclusionHTML+'</div>';
+  html += '<p class="rules-title">Motivación — reglas aplicadas</p><ol class="motivacion">';
+  rules.forEach(r=>{ html += '<li><div><p>'+r.text+'</p><span class="art">'+r.art+'</span></div></li>'; });
+  html += '</ol>';
+  if(checklist && checklist.length){
+    html += '<p class="rules-title">Elementos a integrar en el expediente</p><ul class="checklist">';
+    checklist.forEach(c=> html += '<li>'+c+'</li>');
+    html += '</ul>';
+  }
+  html += '<p class="footnote">'+(extraFoot||'Ley Federal del Trabajo, texto vigente (última reforma DOF 21/02/2025).')+'</p>';
+  el.innerHTML = html;
+}
+
+/* ================= 01: TERMINACIÓN LABORAL ================= */
+function runTerminacion(){
+  const tipo = getVal('g_tipo');
+  const causa = getVal('g_causa');
+  const confianza = getVal('g_confianza');
+  const antiguedad = getVal('g_antiguedad');
+
+  const rules = []; let conclusion; let warn = false; let checklist = [];
+
+  const periodicidad = getVal('g_periodicidad');
+  if(periodicidad==='mensual'){
+    rules.push({text:'Los plazos para el pago del salario nunca podrán ser mayores de una semana para quienes desempeñan trabajo material, y de quince días para los demás trabajadores; un pago pactado mensualmente excede ese máximo legal y es, en sí mismo, una irregularidad reclamable.', art:'LFT, art. 88'});
+  }
+
+  rules.push({text:'El trabajador o el patrón podrán rescindir en cualquier tiempo la relación de trabajo por causa justificada, sin incurrir en responsabilidad.', art:'LFT, art. 46'});
+
+  if(tipo==='sigue'){
+    conclusion = 'La relación laboral continúa vigente; este módulo se activará cuando exista una separación real. Puede usar el módulo de <b>prestaciones</b> para revisar qué le corresponde en este momento (vacaciones, aguinaldo, prima vacacional acumulados).';
+  } else if(tipo==='renuncia'){
+    conclusion = 'Al tratarse de <b>renuncia voluntaria</b>, no procede indemnización constitucional ni reinstalación. Corresponden únicamente las prestaciones devengadas (finiquito) y, si la antigüedad lo permite, la prima de antigüedad.';
+    rules.push({text:'La renuncia voluntaria no genera derecho a indemnización por despido; el trabajador conserva su derecho a las prestaciones ya devengadas (finiquito).', art:'LFT, art. 46 (a contrario); principio general de terminación por voluntad del trabajador'});
+  } else if(tipo==='mutuo'){
+    conclusion = 'Al tratarse de <b>mutuo consentimiento</b>, la relación termina en los términos que las partes hayan convenido; corresponden las prestaciones devengadas y lo que se haya pactado expresamente, sin que exista, por sí solo, derecho a la indemnización de los artículos 48 y 50.';
+    rules.push({text:'El mutuo consentimiento de las partes es una causa de terminación de la relación de trabajo distinta del despido.', art:'LFT, art. 53, fracción I'});
+  } else {
+    const sinAviso = tipo==='despido_sin_aviso';
+    rules.push({text:'El patrón que despida a un trabajador debe entregarle aviso escrito que refiera claramente la conducta que motiva la rescisión y la fecha en que se cometió, personalmente o comunicándolo al Tribunal dentro de los cinco días hábiles siguientes.', art:'LFT, art. 47, párrafos décimo sexto y décimo séptimo'});
+    if(sinAviso){
+      conclusion = 'Al no haberse entregado aviso escrito de rescisión, opera la <b>presunción de despido injustificado</b>, salvo que el patrón acredite en el procedimiento que sí lo entregó o que notificó al Tribunal dentro del plazo, y que la causa invocada es real.';
+      rules.push({text:'La falta de aviso al trabajador personalmente o por conducto del Tribunal presumirá, por sí sola, la separación injustificada, salvo prueba en contrario que acredite que el despido fue justificado.', art:'LFT, art. 47, párrafo décimo octavo'});
+    } else if(causa==='injustificado'){
+      conclusion = 'Aunque hubo aviso escrito, usted no coincide en que exista la causa señalada. Corresponde al <b>patrón acreditar la causa de la rescisión</b> en el procedimiento; si no la comprueba, el despido se tendrá por injustificado y además se generan salarios vencidos.';
+      rules.push({text:'Si en el juicio el patrón no comprueba la causa de la rescisión, el trabajador tendrá derecho a que se le paguen los salarios vencidos desde la fecha del despido hasta por un máximo de doce meses, cualquiera que hubiese sido la acción intentada.', art:'LFT, art. 48, párrafo segundo'});
+    } else {
+      conclusion = 'Con aviso escrito y causa reconocida, se trataría de una <b>rescisión justificada</b> conforme al catálogo de causas del artículo 47; procede únicamente el finiquito de prestaciones devengadas, sin indemnización.';
+      rules.push({text:'Catálogo de causas de rescisión sin responsabilidad para el patrón: faltas de probidad u honradez, violencia, más de tres faltas de asistencia injustificadas en 30 días, desobediencia sin causa, entre otras.', art:'LFT, art. 47, fracciones I a XV'});
+    }
+
+    if(tipo!=='sigue' && causa!=='deacuerdo'){
+      conclusion += ' El trabajador puede optar entre demandar la <b>reinstalación</b> o la <b>indemnización constitucional de tres meses de salario</b>, previo agotamiento de la conciliación prejudicial.';
+      rules.push({text:'El trabajador podrá solicitar que se le reinstale en el trabajo que desempeñaba, o que se le indemnice con el importe de tres meses de salario, previa la conciliación prejudicial prevista en el artículo 684-A y siguientes.', art:'LFT, art. 48, párrafo primero'});
+
+      const sinDerechoReinstalacion = (antiguedad==='menos1') || (confianza==='si');
+      if(sinDerechoReinstalacion){
+        warn = true;
+        const razon = confianza==='si' ? 'se trata de un trabajador de confianza' : 'la antigüedad es menor a un año';
+        conclusion += ' Sin embargo, el patrón puede eximirse de reinstalarlo pagando la indemnización del artículo 50, ya que '+razon+'.';
+        rules.push({text:'El patrón queda eximido de reinstalar mediante el pago de las indemnizaciones del artículo 50 cuando se trate de trabajadores con antigüedad menor a un año, o de trabajadores de confianza, entre otros supuestos.', art:'LFT, art. 49, fracciones I y III'});
+      }
+      checklist = [
+        'Copia del aviso de rescisión, si lo hubo, o constancia de que no se entregó.',
+        'Comprobante de la fecha exacta de separación.',
+        'Recibos de nómina de los últimos meses para acreditar el salario.',
+        'Constancia de antigüedad o contrato de trabajo.'
+      ];
+    }
+  }
+
+  renderDictamen('out-terminacion', 'terminacion', conclusion, rules, checklist, null, warn);
+}
+
+/* ================= 02: PRESTACIONES Y FINIQUITO ================= */
+function runPrestaciones(){
+  const tipo = getVal('g_tipo');
+  const causa = getVal('g_causa');
+  const antiguedad = getVal('g_antiguedad');
+  const vacaciones = getVal('g_vacaciones');
+  const aguinaldo = getVal('g_aguinaldo');
+
+  const rules = []; let checklist = []; let conclusion;
+
+  const oficioEl = document.getElementById('g_oficio');
+  const oficio = oficioEl ? oficioEl.value : null;
+  if(oficio && oficio!=='otro'){
+    rules.push({text:'Existen salarios mínimos profesionales, superiores al general, para las ramas de actividad, profesiones, oficios o trabajos especiales determinados por la Comisión Nacional de los Salarios Mínimos. El salario base para calcular el finiquito y, en su caso, la indemnización, no puede ser inferior al mínimo profesional fijado para el oficio "'+oficio+'".', art:'LFT, art. 93; resolución anual de la CONASAMI publicada en el DOF'});
+    checklist.push('Verificar en la resolución vigente de la CONASAMI (DOF) la cuota diaria del salario mínimo profesional para "'+oficio+'", y usar ese monto como piso si el salario pactado fue menor.');
+  }
+
+  conclusion = 'Con independencia de cómo haya terminado la relación laboral, corresponde el <b>finiquito</b> de las prestaciones ya devengadas: días trabajados no pagados, vacaciones proporcionales no disfrutadas, prima vacacional y aguinaldo proporcional.';
+  rules.push({text:'Los trabajadores con más de un año de servicios disfrutarán de un periodo anual de vacaciones pagadas, mínimo doce días laborables el primer año, aumentando dos días por cada año subsecuente hasta llegar a veinte, y después dos días por cada cinco años.', art:'LFT, art. 76'});
+  rules.push({text:'Si la relación de trabajo termina antes de cumplirse el año de servicios, el trabajador tiene derecho a una remuneración de vacaciones proporcional al tiempo trabajado; las vacaciones no pueden compensarse en dinero mientras subsiste la relación.', art:'LFT, art. 79'});
+  rules.push({text:'Los trabajadores tienen derecho a una prima vacacional no menor del veinticinco por ciento sobre los salarios que les correspondan durante el periodo de vacaciones.', art:'LFT, art. 80'});
+  rules.push({text:'Los trabajadores tienen derecho a un aguinaldo anual equivalente a por lo menos quince días de salario, pagadero antes del veinte de diciembre; quien no haya cumplido el año tiene derecho a la parte proporcional.', art:'LFT, art. 87'});
+
+  if(vacaciones==='no' || vacaciones==='parcial'){
+    checklist.push('Reclamar las vacaciones no disfrutadas (total o la parte pendiente) más su prima vacacional del 25%.');
+  }
+  if(aguinaldo==='no'){
+    checklist.push('Reclamar el aguinaldo proporcional del año en que terminó la relación laboral.');
+  }
+
+  const antiguedadAlta = antiguedad==='5a15' || antiguedad==='15mas';
+  const primaPorAntiguedadAplica = (tipo!=='renuncia') || antiguedad==='15mas';
+  if(primaPorAntiguedadAplica){
+    conclusion += ' Además, procede la <b>prima de antigüedad</b>: doce días de salario por cada año de servicio, con tope de dos veces el salario mínimo diario.';
+    rules.push({text:'La prima de antigüedad consiste en doce días de salario por cada año de servicios, con un tope de dos veces el salario mínimo general del área geográfica; es exigible en despido, justificado o injustificado, y en caso de muerte del trabajador.', art:'LFT, art. 162, fracciones I a III'});
+    if(tipo==='renuncia'){
+      rules.push({text:'En separación voluntaria, la prima de antigüedad solo es exigible cuando el trabajador haya cumplido quince años o más de servicios.', art:'LFT, art. 162, fracción I'});
+    }
+  } else {
+    conclusion += ' Al tratarse de renuncia voluntaria con menos de quince años de antigüedad, <b>no procede la prima de antigüedad</b>, conforme al artículo 162.';
+    rules.push({text:'En separación voluntaria, la prima de antigüedad solo es exigible cuando el trabajador haya cumplido quince años o más de servicios; con menor antigüedad no es obligatoria para el patrón.', art:'LFT, art. 162, fracción I'});
+  }
+
+  if((tipo==='despido_sin_aviso' || (tipo==='despido_con_aviso' && causa==='injustificado'))){
+    conclusion += ' Al tratarse de un posible despido injustificado, además del finiquito corresponde la <b>indemnización constitucional</b>: tres meses de salario, veinte días de salario por cada año de servicios, y los salarios vencidos hasta por doce meses si el patrón no acredita la causa.';
+    rules.push({text:'Además de las indemnizaciones referidas, procede el importe de tres meses de salario y el pago de los salarios vencidos e intereses en los términos del artículo 48.', art:'LFT, art. 50, fracción III'});
+    rules.push({text:'Si la relación de trabajo es por tiempo indeterminado, la indemnización consiste en veinte días de salario por cada año de servicios prestados.', art:'LFT, art. 50, fracción II'});
+    checklist.push('Diferenciar en el reclamo el finiquito (prestaciones devengadas) de la liquidación (indemnización por despido injustificado): son conceptos distintos y acumulables.');
+  }
+
+  checklist.push('Recibos de nómina y constancia de percepciones para acreditar el salario diario integrado.');
+
+  renderDictamen('out-prestaciones', 'prestaciones', conclusion, rules, checklist);
+}
+
+/* ================= 03: PROCEDIMIENTO Y PLAZOS ================= */
+function runProcedimiento(){
+  const tipo = getVal('g_tipo');
+  const tiempo = getVal('g_tiempo');
+  const conciliacion = getVal('g_conciliacion');
+  const violencia = getVal('g_violencia');
+
+  const rules = []; let conclusion; let warn = false; let checklist = [];
+
+  if(tipo==='sigue'){
+    conclusion = 'Al continuar vigente la relación laboral, no corre ningún plazo de prescripción por despido. Este módulo cobra relevancia si la relación llega a terminar.';
+    renderDictamen('out-procedimiento', 'procedimiento', conclusion, rules, checklist);
+    return;
+  }
+
+  rules.push({text:'Las acciones de trabajo prescriben en un año en general, salvo las excepciones de los artículos siguientes.', art:'LFT, art. 516'});
+
+  if(tipo==='despido_sin_aviso' || tipo==='despido_con_aviso'){
+    conclusion = 'El plazo para reclamar reinstalación o indemnización por despido es de <b>dos meses</b>, contados a partir del día siguiente a la separación.';
+    rules.push({text:'Prescriben en dos meses las acciones de los trabajadores que sean separados del trabajo, contados a partir del día siguiente a la fecha de la separación.', art:'LFT, art. 518, párrafos primero y segundo'});
+    rules.push({text:'El plazo de dos meses se suspende a partir de la presentación de la solicitud de conciliación prejudicial, y se reanuda al día siguiente en que concluya esa etapa.', art:'LFT, art. 518, párrafo tercero; art. 684-B'});
+
+    if(tiempo==='mas2m' && conciliacion==='no'){
+      warn = true;
+      conclusion += ' <b>Han pasado más de dos meses y no se ha acudido a conciliación</b>: existe un riesgo serio de que la acción esté prescrita. Debe revisarse con precisión la fecha exacta de separación y si hubo alguna causa de interrupción o suspensión del plazo.';
+    } else if(tiempo==='menos2m'){
+      conclusion += ' Al tratarse de menos de dos meses desde la separación, el plazo sigue vigente; conviene iniciar el trámite de conciliación cuanto antes para no acercarse al límite.';
+    }
+  } else if(tipo==='renuncia' || tipo==='mutuo'){
+    conclusion = 'Para el cobro de prestaciones devengadas (finiquito) aplica el plazo general de <b>un año</b>, salvo reglas especiales para conceptos específicos.';
+  }
+
+  if(violencia==='si'){
+    conclusion += ' Al existir hechos de acoso, discriminación u otra forma de violencia laboral, la ley contempla excepciones a la conciliación prejudicial obligatoria para estos supuestos, permitiendo acudir directamente al Tribunal.';
+    rules.push({text:'La conciliación prejudicial es obligatoria antes de acudir a los Tribunales, con excepciones vinculadas a la gravedad del conflicto, como los casos de discriminación o violencia.', art:'LFT, arts. 684-A y 684-B, con sus excepciones'});
+    rules.push({text:'Cuando en la solicitud de conciliación se manifieste la existencia de acoso sexual, discriminación u otros actos de violencia con riesgo de revictimización, la autoridad conciliadora debe evitar que la víctima se reúna o encare a la persona señalada.', art:'LFT, art. 684-E, párrafo relativo a violencia'});
+  } else {
+    rules.push({text:'Antes de acudir a los Tribunales, los trabajadores y patrones deben asistir al Centro de Conciliación correspondiente para solicitar el inicio del procedimiento de conciliación, salvo las excepciones previstas en la ley.', art:'LFT, art. 684-B'});
+  }
+
+  if(conciliacion==='no'){
+    checklist.push('Presentar la solicitud de conciliación prejudicial ante el Centro de Conciliación competente antes de demandar ante el Tribunal (salvo excepción aplicable).');
+  }
+  checklist.push('Precisar con exactitud la fecha de separación: de ella depende el cómputo del plazo de dos meses.');
+
+  renderDictamen('out-procedimiento', 'procedimiento', conclusion, rules, checklist, null, warn);
+}
+
+/* ================= PREGUNTAS Y RESPUESTAS ================= */
+function buildPreguntasRespuestas(){
+  const grupos = [];
+  function addItem(items, name, pregunta, map, condicion){
+    if(condicion===false) return;
+    const v = getVal(name);
+    if(v===null) return;
+    items.push({q:pregunta, a: map ? (map[v]!==undefined ? map[v] : v) : v});
+  }
+
+  let g1 = [];
+  addItem(g1,'g_tipo','¿Cómo terminó la relación laboral?',{despido_sin_aviso:'Despido sin aviso escrito',despido_con_aviso:'Despido con aviso escrito de causa',renuncia:'Renuncia voluntaria',mutuo:'Mutuo consentimiento',sigue:'Sigue trabajando (aún no termina)'});
+  addItem(g1,'g_causa','¿Está de acuerdo en que existió la causa señalada?',{deacuerdo:'Sí, hubo causa real',injustificado:'No, se considera injustificado'}, getVal('g_tipo')==='despido_con_aviso');
+  addItem(g1,'g_confianza','¿Es trabajador de confianza?',{si:'Sí',no:'No'});
+  addItem(g1,'g_antiguedad','Antigüedad en el empleo',{menos1:'Menos de 1 año','1a5':'1 a 5 años','5a15':'5 a 15 años','15mas':'15 años o más'});
+  addItem(g1,'g_contrato','¿Firmó contrato individual de trabajo por escrito?',{si:'Sí',no:'No',nosabe:'No sabe'});
+  addItem(g1,'g_imss','¿Estaba inscrito en el IMSS por este empleo?',{si:'Sí',no:'No',nosabe:'No sabe'});
+  { const of = document.getElementById('g_oficio') ? document.getElementById('g_oficio').value : null;
+    if(of){
+      const ofTexto = of==='otro' ? (document.getElementById('g_oficio_otro').value || 'Otro oficio (sin especificar)') : of;
+      g1.push({q:'¿Qué oficio desempeñaste?', a: ofTexto});
+    }
+  }
+  addItem(g1,'g_recibo_nomina','¿Cuenta con recibos de nómina?',{si:'Sí',no:'No'});
+  addItem(g1,'g_periodicidad','¿Con qué periodicidad recibía el pago?',{diario:'Diario',semanal:'Semanal',quincenal:'Quincenal',mensual:'Mensual'});
+  addItem(g1,'g_forma_pago','¿De qué manera se efectuaba su pago?',{transferencia:'Transferencia bancaria',efectivo:'Efectivo',cheque:'Cheque nominativo'});
+  grupos.push({titulo:'I. La separación del empleo', items:g1});
+
+  let g2 = [];
+  addItem(g2,'g_tiempo','¿Cuánto tiempo ha pasado desde la separación?',{menos2m:'Menos de 2 meses',mas2m:'Más de 2 meses'});
+  addItem(g2,'g_conciliacion','¿Ya acudió al Centro de Conciliación?',{si:'Sí',no:'No'});
+  addItem(g2,'g_violencia','¿Existen hechos de acoso, discriminación o violencia laboral asociados?',{si:'Sí',no:'No'});
+  addItem(g2,'g_vacaciones','¿Tomó todas sus vacaciones del último año trabajado?',{si:'Sí, completas',parcial:'Parcialmente',no:'No'});
+  addItem(g2,'g_aguinaldo','¿Le pagaron el aguinaldo proporcional del año en que terminó?',{si:'Sí',no:'No'});
+  grupos.push({titulo:'II. Tiempo, prestaciones y trámite', items:g2});
+
+  return grupos;
+}
+function buildFundamentosDerecho(){
+  const order = ['terminacion','prestaciones','procedimiento'];
+  const labels = {terminacion:'Terminación laboral', prestaciones:'Prestaciones y finiquito', procedimiento:'Procedimiento y plazos'};
+  const out = [];
+  order.forEach(k=>{
+    if(!store[k]) return;
+    const vistos = new Set(); const arts = [];
+    (store[k].rules||[]).forEach(r=>{ if(!vistos.has(r.art)){ vistos.add(r.art); arts.push(r.art); } });
+    out.push({modulo:labels[k], arts});
+  });
+  return out;
+}
+function buildDocumentos(){
+  const tipo = getVal('g_tipo');
+  const violencia = getVal('g_violencia');
+  const reciboNomina = getVal('g_recibo_nomina');
+  const formaPago = getVal('g_forma_pago');
+  const contrato = getVal('g_contrato');
+  const imss = getVal('g_imss');
+  const docs = [];
+  docs.push('Contrato individual de trabajo o, en su defecto, constancia de la relación laboral (recibos, credencial, correos).');
+  if(reciboNomina==='si'){
+    docs.push('Últimos recibos de nómina, para acreditar el salario diario y su integración.');
+  } else {
+    docs.push('Al no contar con recibos de nómina, reunir medios de prueba alternos del salario y de la relación laboral: estados de cuenta, mensajes o correos con instrucciones de trabajo, uniformes, gafetes, testigos.');
+  }
+  if(formaPago==='transferencia'){
+    docs.push('Estados de cuenta bancarios que muestren los depósitos periódicos recibidos: son prueba idónea del salario, la periodicidad de pago y la identidad de quien pagaba, incluso sin recibos de nómina.');
+  } else if(formaPago==='cheque'){
+    docs.push('Copias o fotografías de los cheques nominativos recibidos, y en su caso el estado de cuenta donde se cobraron.');
+  } else if(formaPago==='efectivo'){
+    docs.push('Al haber recibido el pago en efectivo, reforzar la prueba del salario con testigos, mensajes donde se mencionen montos o fechas de pago, o cualquier acuse de recibo que haya firmado.');
+  }
+  if(contrato==='no' || contrato==='nosabe'){
+    docs.push('Ante la falta de contrato escrito, reunir evidencia adicional de la relación laboral: mensajes, fotografías en el centro de trabajo, testigos (compañeros, clientes, proveedores).');
+  }
+  if(imss==='no' || imss==='nosabe'){
+    docs.push('Solicitar al IMSS la constancia de semanas cotizadas: si no hay registro, ello también es un dato relevante para el caso y puede dar lugar a un reclamo independiente ante el IMSS por falta de inscripción.');
+  } else {
+    docs.push('Constancia de semanas cotizadas del IMSS, para acreditar antigüedad y salario base de cotización.');
+  }
+  docs.push('Identificación oficial vigente del trabajador.');
+  docs.push('Comprobante de domicilio del trabajador y, de conocerse, del centro de trabajo.');
+  if(tipo==='despido_sin_aviso' || tipo==='despido_con_aviso'){
+    docs.push('Aviso de rescisión, si se recibió, o manifestación por escrito de que no se entregó.');
+    docs.push('Testigos o evidencia (mensajes, correos, videos) que acrediten la fecha y forma de la separación.');
+  }
+  docs.push('Constancia de antigüedad o, en su defecto, cálculo aproximado del tiempo laborado con evidencia de las fechas de inicio y término.');
+  if(violencia==='si'){
+    docs.push('Evidencia de los hechos de acoso, discriminación o violencia laboral manifestados (mensajes, testigos, denuncias internas, partes médicos).');
+  }
+  docs.push('Constancia de conciliación prejudicial (de haberla iniciado) o, en su defecto, la solicitud correspondiente ante el Centro de Conciliación.');
+  return docs;
+}
+/* ================= EXPORTACIÓN XML (BASE DE DATOS DEL EXPEDIENTE) ================= */
+function xmlEsc(s){
+  return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+/* ================= EXPORTACIÓN A EXCEL (SheetJS) ================= */
+function excelDisponible(){
+  if(typeof XLSX === 'undefined'){
+    alert('No se pudo cargar la librería de Excel (sin conexión a internet). Intente de nuevo cuando tenga conexión.');
+    return false;
+  }
+  return true;
+}
+function limpiarTexto(html){
+  return String(html||'').replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim();
+}
+function hojaDatosDelCaso(){
+  const grupos = buildPreguntasRespuestas();
+  const filas = [['Grupo','Pregunta','Respuesta']];
+  grupos.slice(0,2).forEach(g=>{
+    g.items.forEach(it=>{ filas.push([g.titulo, it.q, it.a]); });
+  });
+  const hoja = XLSX.utils.aoa_to_sheet(filas);
+  hoja['!cols'] = [{wch:32},{wch:55},{wch:40}];
+  return hoja;
+}
+function hojaDictamenes(){
+  const filas = [['Módulo','Estado','Conclusión','Fundamentos (artículos)']];
+  ['terminacion','prestaciones','procedimiento'].forEach(k=>{
+    const r = store[k];
+    if(!r){
+      filas.push([tituloModulo[k], 'No generado', '', '']);
+    } else {
+      filas.push([tituloModulo[k], 'Generado', limpiarTexto(r.conclusionHTML), (r.rules||[]).map(x=>x.art).join(' | ')]);
+    }
+  });
+  const hoja = XLSX.utils.aoa_to_sheet(filas);
+  hoja['!cols'] = [{wch:22},{wch:14},{wch:70},{wch:50}];
+  return hoja;
+}
+function hojaCalculoLiquidacion(){
+  const out = document.getElementById('out-calculadora');
+  const filas = [['Prestación','Monto','Notas']];
+  if(out && out.querySelector('table')){
+    out.querySelectorAll('table')[0].querySelectorAll('tr').forEach(tr=>{
+      const celdas = tr.querySelectorAll('td,th');
+      if(celdas.length>=2){
+        filas.push([celdas[0].textContent.trim(), celdas[1].textContent.trim(), celdas[2]?celdas[2].textContent.trim():'']);
+      }
+    });
+  } else {
+    filas.push(['(Aún no se ha generado un cálculo)','','']);
+  }
+  const hoja = XLSX.utils.aoa_to_sheet(filas);
+  hoja['!cols'] = [{wch:32},{wch:16},{wch:40}];
+  return hoja;
+}
+function hojaDocumentos(){
+  const docs = buildDocumentos();
+  const filas = [['#','Documento necesario']];
+  docs.forEach((d,i)=>{ filas.push([i+1, d]); });
+  const hoja = XLSX.utils.aoa_to_sheet(filas);
+  hoja['!cols'] = [{wch:5},{wch:90}];
+  return hoja;
+}
+function descargarExcelCalculadora(){
+  if(!excelDisponible()) return;
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, hojaDatosDelCaso(), 'Datos del caso');
+  XLSX.utils.book_append_sheet(wb, hojaCalculoLiquidacion(), 'Cálculo de liquidación');
+  XLSX.writeFile(wb, 'calculo-liquidacion-laboral.xlsx');
+}
+function descargarExcelExpediente(){
+  if(!excelDisponible()) return;
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, hojaDatosDelCaso(), 'Datos del caso');
+  XLSX.utils.book_append_sheet(wb, hojaDictamenes(), 'Dictámenes');
+  XLSX.utils.book_append_sheet(wb, hojaCalculoLiquidacion(), 'Cálculo de liquidación');
+  XLSX.utils.book_append_sheet(wb, hojaDocumentos(), 'Documentos necesarios');
+  XLSX.writeFile(wb, 'expediente-laboral-completo.xlsx');
+}
+
+function descargarXML(){
+  const grupos = buildPreguntasRespuestas();
+  const fundamentos = buildFundamentosDerecho();
+  let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+  xml += '<expediente sistema="Justicia Mexa Para Todos" materia="laboral" fuente="Ley Federal del Trabajo">\n';
+  xml += '  <metadata>\n';
+  xml += '    <fecha_generacion>'+xmlEsc(new Date().toISOString())+'</fecha_generacion>\n';
+  xml += '  </metadata>\n';
+
+  xml += '  <datos_del_caso>\n';
+  grupos.slice(0,2).forEach(g=>{
+    g.items.forEach(it=>{
+      xml += '    <dato grupo="'+xmlEsc(g.titulo)+'">\n';
+      xml += '      <pregunta>'+xmlEsc(it.q)+'</pregunta>\n';
+      xml += '      <respuesta>'+xmlEsc(it.a)+'</respuesta>\n';
+      xml += '    </dato>\n';
+    });
+  });
+  xml += '  </datos_del_caso>\n';
+
+  xml += '  <dictamenes>\n';
+  ['terminacion','prestaciones','procedimiento'].forEach(k=>{
+    const r = store[k];
+    xml += '    <dictamen modulo="'+k+'">\n';
+    if(!r){
+      xml += '      <estado>no_generado</estado>\n';
+    } else {
+      xml += '      <estado>generado</estado>\n';
+      xml += '      <conclusion><![CDATA['+ (r.conclusionHTML||'').replace(/<[^>]+>/g,'') +']]></conclusion>\n';
+      xml += '      <fundamentos>\n';
+      (r.rules||[]).forEach(x=>{ xml += '        <articulo>'+xmlEsc(x.art)+'</articulo>\n'; });
+      xml += '      </fundamentos>\n';
+    }
+    xml += '    </dictamen>\n';
+  });
+  xml += '  </dictamenes>\n';
+
+  // Cálculo de liquidación, si ya se generó
+  const outCalc = document.getElementById('out-calculadora');
+  if(outCalc && outCalc.querySelector('table')){
+    xml += '  <calculo_liquidacion generado="true">\n';
+    outCalc.querySelectorAll('table tr').forEach(tr=>{
+      const tds = tr.querySelectorAll('td');
+      if(tds.length>=2){
+        xml += '    <concepto nombre="'+xmlEsc(tds[0].textContent.trim())+'" monto="'+xmlEsc(tds[1].textContent.trim())+'"/>\n';
+      }
+    });
+    xml += '  </calculo_liquidacion>\n';
+  } else {
+    xml += '  <calculo_liquidacion generado="false"/>\n';
+  }
+
+  xml += '  <fundamentos_de_derecho>\n';
+  fundamentos.forEach(f=>{
+    xml += '    <modulo nombre="'+xmlEsc(f.modulo)+'">\n';
+    f.arts.forEach(a=>{ xml += '      <articulo>'+xmlEsc(a)+'</articulo>\n'; });
+    xml += '    </modulo>\n';
+  });
+  xml += '  </fundamentos_de_derecho>\n';
+
+  const docs = buildDocumentos();
+  xml += '  <documentos_necesarios>\n';
+  docs.forEach(d=>{ xml += '    <documento>'+xmlEsc(d)+'</documento>\n'; });
+  xml += '  </documentos_necesarios>\n';
+
+  xml += '</expediente>\n';
+
+  const blob = new Blob([xml], {type:'application/xml'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'expediente-laboral.xml';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+
+/* ================= GENERADOR DE DEMANDA CON IA (API de Anthropic) ================= */
+function construirExpedienteTexto(){
+  const grupos = buildPreguntasRespuestas();
+  let txt = '';
+  grupos.slice(0,2).forEach(g=>{
+    txt += '\n### '+g.titulo+'\n';
+    g.items.forEach(it=>{ txt += '- '+it.q+' → '+it.a+'\n'; });
+  });
+  ['terminacion','prestaciones','procedimiento'].forEach(k=>{
+    const r = store[k];
+    if(r){
+      txt += '\n### Dictamen: '+tituloModulo[k]+'\n';
+      txt += (r.conclusionHTML||'').replace(/<[^>]+>/g,'')+'\n';
+      txt += 'Fundamentos: '+ (r.rules||[]).map(x=>x.art).join('; ') + '\n';
+    }
+  });
+  const outCalc = document.getElementById('out-calculadora');
+  if(outCalc && outCalc.querySelector('table')){
+    txt += '\n### Cálculo de liquidación (montos estimados)\n';
+    outCalc.querySelectorAll('table tr').forEach(tr=>{
+      const tds = tr.querySelectorAll('td');
+      if(tds.length>=2) txt += '- '+tds[0].textContent.trim()+': '+tds[1].textContent.trim()+'\n';
+    });
+  }
+  return txt;
+}
+
+async function generarDemandaIA(){
+  const out = document.getElementById('out-demanda-ia');
+  out.style.display = 'flex';
+
+  if(!store.terminacion && !store.prestaciones && !store.procedimiento){
+    out.innerHTML = '<div class="head"><h2>Proyecto de demanda (IA)</h2><span class="status-pill">datos insuficientes</span></div><div class="empty-state"><div class="glyph">!</div>Genere al menos un dictamen (Terminación, Prestaciones o Procedimiento) antes de redactar el proyecto de demanda.</div>';
+    return;
+  }
+
+  const passwordInput = document.getElementById('admin_password');
+  const password = passwordInput.value;
+  if(!password){
+    out.innerHTML = '<div class="head"><h2>Proyecto de demanda (IA)</h2><span class="status-pill">clave requerida</span></div><div class="empty-state"><div class="glyph">🔒</div>Escriba su clave de acceso antes de generar el proyecto de demanda.</div>';
+    passwordInput.focus();
+    return;
+  }
+  // Se guarda solo en este navegador (localStorage), por comodidad — la verificación real ocurre en el servidor.
+  localStorage.setItem('jm_admin_password', password);
+
+  out.innerHTML = '<div class="head"><h2>Proyecto de demanda (IA)</h2><span class="status-pill">redactando…</span></div><div class="empty-state"><div class="glyph">✦</div>Consultando a la IA con los datos del expediente. Esto puede tardar unos segundos…</div>';
+
+  const expedienteTexto = construirExpedienteTexto();
+
+  const systemPrompt = [
+    'Eres un abogado litigante mexicano, especialista en derecho procesal del trabajo, con amplia experiencia redactando escritos ante los Tribunales Laborales del Poder Judicial.',
+    'Tu única tarea es redactar un PROYECTO de escrito inicial de demanda laboral, en español, con lenguaje jurídico formal mexicano, a partir EXCLUSIVAMENTE de los datos del expediente que se te proporcionan a continuación.',
+    '',
+    'REGLAS ESTRICTAS QUE DEBES SEGUIR SIN EXCEPCIÓN:',
+    '1. NUNCA inventes hechos, nombres, domicilios, fechas, montos o cualquier dato que no esté explícitamente en el expediente proporcionado. Si un dato indispensable falta, escribe literalmente "[DATO PENDIENTE: descripción de lo que falta]" en el lugar correspondiente.',
+    '2. Estructura el escrito exactamente en este orden, conforme al artículo 872 de la Ley Federal del Trabajo:',
+    '   I. Proemio — Tribunal Laboral competente (usa "[DATO PENDIENTE: Tribunal Laboral competente]" si no se indica) y manifestación de que se promueve demanda laboral.',
+    '   II. Nombre y domicilio de la parte actora (trabajador) para oír y recibir notificaciones.',
+    '   III. Nombre, denominación o razón social y domicilio de la parte demandada (patrón); si el expediente no tiene ese dato, usa "[DATO PENDIENTE: nombre y domicilio del demandado]".',
+    '   IV. Prestaciones que se reclaman, numeradas conforme a los conceptos identificados en el expediente (p. ej. reinstalación o indemnización constitucional, prima de antigüedad, aguinaldo proporcional, vacaciones y prima vacacional proporcionales, salarios vencidos).',
+    '   V. Hechos, numerados, redactados en tercera persona y en orden cronológico, basados solo en las respuestas del expediente.',
+    '   VI. Fundamentos de derecho, citando EXCLUSIVAMENTE los artículos que aparecen en el expediente proporcionado; no agregues jurisprudencia ni tesis ni artículos no mencionados.',
+    '   VII. Puntos petitorios, redactados como peticiones formales al Tribunal.',
+    '3. No emitas opiniones personales, no des consejos fuera del propio escrito, no agregues explicaciones antes o después del documento.',
+    '4. Sé conciso pero completo: por restricciones técnicas de esta herramienta, el espacio de respuesta es limitado, así que prioriza que estén presentes las siete secciones completas antes que la extensión narrativa de cada una.',
+    '5. Termina el documento con esta leyenda exacta en una línea aparte: "PROYECTO DE DEMANDA — REQUIERE REVISIÓN Y VALIDACIÓN POR ABOGADO POSTULANTE ANTES DE SU PRESENTACIÓN."'
+  ].join('\n');
+
+  const userPrompt = 'Datos del expediente (Sistema Justicia Mexa Para Todos, materia laboral):\n' + expedienteTexto + '\n\nRedacta el proyecto de escrito inicial de demanda laboral conforme a las reglas indicadas.';
+
+  try{
+    // Ya NO se llama directo a Anthropic. Se llama a tu propia función de Netlify,
+    // que valida la contraseña en el servidor y solo entonces usa tu clave real.
+    const response = await fetch('/.netlify/functions/generar-demanda', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
+      body: JSON.stringify({ systemPrompt, userPrompt })
+    });
+
+    if(response.status === 401){
+      out.innerHTML = '<div class="head"><h2>Proyecto de demanda (IA)</h2><span class="status-pill">acceso denegado</span></div><div class="empty-state"><div class="glyph">🔒</div>Clave de acceso incorrecta. Verifique la contraseña e intente de nuevo.</div>';
+      localStorage.removeItem('jm_admin_password');
+      return;
+    }
+    if(!response.ok){
+      const errData = await response.json().catch(()=>({}));
+      out.innerHTML = '<div class="head"><h2>Proyecto de demanda (IA)</h2><span class="status-pill">error</span></div><div class="empty-state"><div class="glyph">!</div>'+xmlEsc(errData.error || 'Error al generar la demanda.')+'</div>';
+      return;
+    }
+
+    const data = await response.json();
+    const texto = (data.content || [])
+      .filter(b=>b.type==='text')
+      .map(b=>b.text)
+      .join('\n')
+      .replace(/\n/g,'<br>');
+
+    if(!texto){
+      out.innerHTML = '<div class="head"><h2>Proyecto de demanda (IA)</h2><span class="status-pill">sin respuesta</span></div><div class="empty-state"><div class="glyph">!</div>No se recibió texto de la IA. Verifique que la función de Netlify esté desplegada y que ANTHROPIC_API_KEY esté configurada.</div>';
+      return;
+    }
+
+    let html = '<div class="head"><h2>Proyecto de demanda (IA)</h2><span class="status-pill">generado</span></div>';
+    html += '<div class="conclusion warn" style="margin-bottom:16px;">Este texto es un <b>proyecto generado por IA</b>: puede contener errores, omisiones o secciones marcadas como [DATO PENDIENTE]. Debe ser revisado, completado y validado por un abogado postulante antes de presentarse ante cualquier Tribunal.</div>';
+    html += '<div id="demanda-texto" style="font-family:\'Spectral\',serif;font-size:14.5px;line-height:1.8;color:var(--text-on-dark);background:rgba(255,255,255,0.04);padding:20px;border-radius:3px;">'+texto+'</div>';
+    html += '<button class="btn-descarga-modulo" style="margin-top:16px;" onclick="descargarDemandaTxt()">⬇ Descargar proyecto de demanda (.txt)</button>';
+    out.innerHTML = html;
+    window._ultimaDemandaTexto = texto.replace(/<br>/g,'\n');
+  } catch(err){
+    out.innerHTML = '<div class="head"><h2>Proyecto de demanda (IA)</h2><span class="status-pill">error de conexión</span></div><div class="empty-state"><div class="glyph">!</div>No se pudo contactar la función /.netlify/functions/generar-demanda. Esto casi siempre significa que esa dirección no existe todavía en su sitio (revise: 1) que el sitio esté desplegado en Netlify, no abierto como archivo local; 2) que la carpeta netlify/functions se haya subido junto con el HTML; 3) que en el panel de Netlify, en la pestaña "Functions", aparezca "generar-demanda" listada). Detalle técnico: '+xmlEsc(err.message)+'</div>';
+  }
+}
+function descargarDemandaTxt(){
+  const texto = window._ultimaDemandaTexto || '';
+  const blob = new Blob([texto], {type:'text/plain;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'proyecto-demanda-laboral.txt';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function runResumen(){
+  const order = [
+    {key:'terminacion', label:'Terminación laboral'},
+    {key:'prestaciones', label:'Prestaciones y finiquito'},
+    {key:'procedimiento', label:'Procedimiento y plazos'}
+  ];
+  let html = '<div class="head"><h2>Expediente integrado</h2><span class="status-pill">resuelto</span></div>';
+  order.forEach((m,i)=>{
+    html += '<div class="resumen-block"><h3><span class="idx">'+(i+1)+'</span>'+m.label+'</h3>';
+    const r = store[m.key];
+    if(!r){
+      html += '<p class="missing">Aún no se ha generado el dictamen de este módulo. Vaya a la pestaña correspondiente y presione "Generar dictamen".</p>';
+    } else {
+      html += '<p class="rc">'+r.conclusionHTML+'</p>';
+      if(r.checklist && r.checklist.length){
+        html += '<ul>'; r.checklist.forEach(c=> html += '<li>'+c+'</li>'); html += '</ul>';
+      }
+    }
+    html += '</div>';
+  });
+
+  html += '<div class="resumen-block"><h3><span class="idx">§</span>PREGUNTAS Y RESPUESTAS — INSUMO PARA LA REDACCIÓN DE HECHOS</h3>';
+  const grupos = buildPreguntasRespuestas();
+  grupos.forEach(g=>{
+    if(!g.items.length) return;
+    html += '<div class="qa-group"><h4>'+g.titulo+'</h4>';
+    g.items.forEach(it=>{ html += '<div class="qa-item"><p class="q">'+it.q+'</p><p class="a">'+it.a+'</p></div>'; });
+    html += '</div>';
+  });
+  html += '</div>';
+
+  html += '<div class="resumen-block"><h3><span class="idx">§</span>FUNDAMENTOS DE DERECHO APLICABLES</h3>';
+  const fundamentos = buildFundamentosDerecho();
+  if(!fundamentos.length){
+    html += '<p class="missing">Genere al menos un dictamen para que aparezcan aquí sus fundamentos.</p>';
+  } else {
+    fundamentos.forEach(f=>{
+      html += '<div class="qa-group"><h4>'+f.modulo+'</h4><ul class="derecho-list">';
+      f.arts.forEach(a=> html += '<li>'+a+'</li>');
+      html += '</ul></div>';
+    });
+  }
+  html += '</div>';
+
+  const docs = buildDocumentos();
+  const romanos = ['I','II','III','IV','V','VI','VII','VIII','IX','X'];
+  html += '<div class="resumen-block"><h3><span class="idx">§</span>DOCUMENTOS QUE SE NECESITAN</h3>';
+  html += '<ol class="documentos">';
+  docs.forEach((d,i)=>{ html += '<li><b style="color:var(--brass);">'+(romanos[i]||(i+1))+'.</b> '+d+'</li>'; });
+  html += '</ol></div>';
+
+  document.getElementById('out-resumen').innerHTML = html;
+  markDone('resumen');
+}
+
+/* ================= CALCULADORA DE LIQUIDACIÓN ================= */
+function vacDaysForYear(n){
+  // Ley Federal del Trabajo, art. 76 (reforma "vacaciones dignas" DOF 27/12/2022)
+  if(n<=5) return 10+2*n; // año1=12, año2=14, año3=16, año4=18, año5=20
+  const periodosDe5 = Math.ceil((n-5)/5);
+  return 20 + periodosDe5*2; // año 6-10=22, 11-15=24, 16-20=26...
+}
+function fmtMoney(n){
+  return '$'+n.toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2});
+}
+function calcularLiquidacion(){
+  const aceptoTerminos = document.getElementById('calc_acepto_terminos').checked;
+  const msgTerminos = document.getElementById('calc_terminos_msg');
+  if(!aceptoTerminos){
+    msgTerminos.style.display = 'block';
+    document.getElementById('calc_acepto_terminos').focus();
+    const out = document.getElementById('out-calculadora');
+    out.innerHTML = '<div class="head"><h2>Resultado</h2><span class="status-pill">pendiente</span></div><div class="empty-state"><div class="glyph">!</div>Debe aceptar los términos de uso de la calculadora antes de continuar.</div>';
+    return;
+  }
+  msgTerminos.style.display = 'none';
+
+  const montoCapturado = parseFloat(document.getElementById('calc_salario').value);
+  const divisorEtiquetas = {'1':'diario','7':'semanal','14':'catorcenal','15':'quincenal','30.4':'mensual'};
+  const divisor = parseFloat(getVal('calc_periodo')) || 1;
+  const salario = montoCapturado / divisor;
+  const zonaFrontera = getVal('calc_zona')==='440.87';
+  const smVigente = parseFloat(getVal('calc_zona'));
+  const fIngreso = document.getElementById('calc_ingreso').value;
+  const fSalida = document.getElementById('calc_salida').value;
+  const tipo = getVal('calc_tipo');
+  const vacTomadas = parseFloat(document.getElementById('calc_vac_tomadas').value) || 0;
+  const aguinaldoPagado = getVal('calc_aguinaldo_pagado');
+  const diasPendientes = parseFloat(document.getElementById('calc_dias_pendientes').value) || 0;
+  const oficioEl = document.getElementById('g_oficio');
+  let oficio = oficioEl ? oficioEl.value : null;
+  if(oficio==='otro'){ oficio = document.getElementById('g_oficio_otro').value || 'Otro oficio (sin especificar)'; }
+
+  const out = document.getElementById('out-calculadora');
+  if(!salario || salario<=0 || !fIngreso || !fSalida){
+    out.innerHTML = '<div class="head"><h2>Resultado</h2><span class="status-pill">datos incompletos</span></div><div class="empty-state"><div class="glyph">!</div>Capture al menos el salario, la fecha de ingreso y la fecha de salida.</div>';
+    return;
+  }
+  const dIngreso = new Date(fIngreso+'T00:00:00');
+  const dSalida = new Date(fSalida+'T00:00:00');
+  const totalDias = Math.round((dSalida - dIngreso)/(1000*60*60*24));
+  if(totalDias<=0){
+    out.innerHTML = '<div class="head"><h2>Resultado</h2><span class="status-pill">fechas inválidas</span></div><div class="empty-state"><div class="glyph">!</div>La fecha de salida debe ser posterior a la fecha de ingreso.</div>';
+    return;
+  }
+  const antiguedadAnios = totalDias/365.25;
+  const aniosCompletos = Math.floor(antiguedadAnios);
+  const anioServicioActual = aniosCompletos+1;
+  const diasEnAnioActual = totalDias - aniosCompletos*365.25;
+
+  // Vacaciones proporcionales del año en curso (arts. 76-79 LFT)
+  const vacEntitlement = vacDaysForYear(anioServicioActual);
+  const vacProporcionalGenerada = (diasEnAnioActual/365.25)*vacEntitlement;
+  const vacPendientes = Math.max(0, vacProporcionalGenerada - vacTomadas);
+  const montoVacaciones = vacPendientes*salario;
+  const montoPrimaVacacional = montoVacaciones*0.25; // art. 80 LFT
+
+  // Aguinaldo proporcional del año calendario en curso (art. 87 LFT)
+  let montoAguinaldo = 0; let diasAguinaldoCalc = 0;
+  if(aguinaldoPagado==='no'){
+    const inicioAnioCal = new Date(dSalida.getFullYear()+'-01-01T00:00:00');
+    const diasDesdeEnero = Math.max(0, Math.round((dSalida - Math.max(inicioAnioCal, dIngreso))/(1000*60*60*24)));
+    diasAguinaldoCalc = (Math.min(diasDesdeEnero,365)/365)*15;
+    montoAguinaldo = diasAguinaldoCalc*salario;
+  }
+
+  // Prima de antigüedad (art. 162 LFT): 12 días por año, tope 2x salario mínimo vigente
+  const salarioParaPrima = Math.min(salario, smVigente*2);
+  const aplicaPrimaAntiguedad = (tipo!=='renuncia') || (antiguedadAnios>=15);
+  const diasPrimaAntiguedad = aplicaPrimaAntiguedad ? 12*antiguedadAnios : 0;
+  const montoPrimaAntiguedad = diasPrimaAntiguedad*salarioParaPrima;
+
+  // Indemnización constitucional (3 meses de SALARIO INTEGRADO, no ordinario):
+  // salario integrado diario = salario + (aguinaldo anual completo /365) + (prima vacacional anual completa /365)
+  // art. 123, apartado A, fracción XXII Constitucional; arts. 48 y 50-III LFT
+  const aguinaldoAnualCompleto = 15*salario;
+  const primaVacAnualCompleta = vacEntitlement*0.25*salario;
+  const salarioIntegrado = salario + (aguinaldoAnualCompleto/365) + (primaVacAnualCompleta/365);
+  const aplicaIndemnizacion = (tipo==='injustificado');
+  const montoIndemnizacion = aplicaIndemnizacion ? salarioIntegrado*90 : 0;
+
+  const montoDiasPendientes = diasPendientes*salario;
+
+  // Conceptos irrenunciables vs. negociables (como la calculadora oficial de Conciliación Laboral)
+  const irrenunciables = montoAguinaldo + montoVacaciones + montoPrimaVacacional;
+  const negociables = montoPrimaAntiguedad + montoIndemnizacion;
+  const granTotal = irrenunciables + negociables + montoDiasPendientes;
+
+  const fmtFecha = (d)=> d.toLocaleDateString('es-MX', {year:'numeric', month:'2-digit', day:'2-digit'});
+
+  let html = '<div class="head"><h2>Resultado</h2><span class="status-pill">calculado</span></div>';
+
+  html += '<p class="rules-title">Información para el cálculo</p>';
+  html += '<div class="conclusion" style="font-size:13.5px;line-height:1.9;">';
+  html += 'Fecha inicio: <b>'+fIngreso+'</b> &nbsp;·&nbsp; Fecha salida: <b>'+fSalida+'</b><br>';
+  html += 'Antigüedad: <b>'+aniosCompletos+' años y '+Math.round(diasEnAnioActual)+' días</b> &nbsp;·&nbsp; Zona fronteriza norte: <b>'+(zonaFrontera?'Sí':'No')+'</b><br>';
+  html += 'Salario mínimo de la zona: <b>'+fmtMoney(smVigente)+'</b> &nbsp;·&nbsp; Salario diario equivalente: <b>'+fmtMoney(salario)+'</b> (capturado como '+(divisorEtiquetas[String(divisor)]||'diario')+')<br>';
+  if(oficio) html += 'Oficio: <b>'+oficio+'</b><br>';
+  html += 'Tipo de terminación evaluada: <b>'+({injustificado:'Despido injustificado', justificado:'Despido justificado', renuncia:'Renuncia voluntaria', mutuo:'Mutuo consentimiento'}[tipo])+'</b>';
+  html += '</div>';
+
+  html += '<p class="rules-title">Resultado</p>';
+  html += '<table style="width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:8px;">';
+  html += '<thead><tr style="border-bottom:1px solid var(--line);"><th style="text-align:left;padding:8px 6px;color:var(--brass);font-family:\'IBM Plex Mono\',monospace;font-size:11px;text-transform:uppercase;">Prestación</th><th style="text-align:right;padding:8px 6px;color:var(--brass);font-family:\'IBM Plex Mono\',monospace;font-size:11px;text-transform:uppercase;">Monto</th><th style="text-align:left;padding:8px 6px;color:var(--brass);font-family:\'IBM Plex Mono\',monospace;font-size:11px;text-transform:uppercase;">Notas</th></tr></thead><tbody>';
+  function fila(nombre, monto, nota, negociable){
+    return '<tr style="border-top:1px solid var(--line);"><td style="padding:9px 6px;color:var(--text-on-dark);">'+nombre+'</td><td style="padding:9px 6px;text-align:right;color:var(--text-on-dark);font-family:\'IBM Plex Mono\',monospace;">'+fmtMoney(monto)+'</td><td style="padding:9px 6px;color:'+(negociable?'var(--alert-2)':'#8fd19e')+';font-size:12px;">'+nota+'</td></tr>';
+  }
+  html += fila('Aguinaldo proporcional', montoAguinaldo, 'Derecho irrenunciable', false);
+  html += fila('Vacaciones proporcionales', montoVacaciones, 'Derecho irrenunciable', false);
+  html += fila('Prima vacacional', montoPrimaVacacional, 'Derecho irrenunciable', false);
+  html += fila('Prima de antigüedad', montoPrimaAntiguedad, aplicaPrimaAntiguedad?'Compensación negociable':'No aplica en este caso', true);
+  html += fila('Indemnización constitucional', montoIndemnizacion, aplicaIndemnizacion?'Compensación negociable':'No aplica en este caso', true);
+  if(diasPendientes>0){
+    html += fila('Días trabajados no pagados', montoDiasPendientes, 'Adicional, no incluido en la calculadora oficial', false);
+  }
+  html += '<tr style="border-top:2px solid var(--brass);"><td style="padding:10px 6px;font-weight:600;color:var(--brass);">TOTAL</td><td style="padding:10px 6px;text-align:right;font-weight:600;color:var(--brass);font-family:\'IBM Plex Mono\',monospace;">'+fmtMoney(granTotal)+'</td><td></td></tr>';
+  html += '</tbody></table>';
+
+  html += '<p class="rules-title">Cálculo de otros porcentajes</p>';
+  html += '<p class="footnote" style="margin-top:0;">Estos porcentajes se aplican solo sobre los conceptos negociables (prima de antigüedad e indemnización constitucional); los derechos irrenunciables siempre se muestran al 100%. Pueden servir como referencia de posibles posturas dentro de una audiencia de conciliación.</p>';
+  html += '<table style="width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:8px;">';
+  [90,80,70,60,50].forEach(p=>{
+    const totalP = irrenunciables + montoDiasPendientes + (negociables*(p/100));
+    html += '<tr style="border-top:1px solid var(--line);"><td style="padding:8px 6px;color:var(--text-dim);">Propuesta '+p+'%</td><td style="padding:8px 6px;text-align:right;color:var(--text-on-dark);font-family:\'IBM Plex Mono\',monospace;">'+fmtMoney(totalP)+'</td></tr>';
+  });
+  html += '</table>';
+
+  html += '<div class="conclusion warn" style="margin-top:18px;"><b>Nota importante:</b> estos cálculos son un estimado basado en condiciones generales de la Ley Federal del Trabajo. Si la persona trabajadora tiene prestaciones contractuales mayores a las de la ley, la compensación puede ser mayor. En el Centro de Conciliación, la persona conciliadora asignada apoya para un cálculo preciso del caso concreto.</div>';
+
+  html += '<p class="rules-title" style="margin-top:22px;">Explicación de las compensaciones</p>';
+
+  html += '<div class="qa-group"><h4>Despido justificado o injustificado</h4>';
+  html += '<p class="a" style="font-size:13.5px;line-height:1.7;">En un despido justificado, el patrón no está obligado a pagar indemnización más allá de las prestaciones irrenunciables (aguinaldo, vacaciones y prima vacacional proporcionales). El despido es injustificado cuando el patrón termina la relación sin actualizar alguna de las causas del artículo 47 — por ejemplo, una reestructura de personal o la situación económica de la empresa no son, por sí solas, causa justificada.</p>';
+  html += '<span class="art">LFT, art. 47</span></div>';
+
+  html += '<div class="qa-group"><h4>Derechos irrenunciables y compensaciones negociables</h4>';
+  html += '<p class="a" style="font-size:13.5px;line-height:1.7;">Al terminar la relación laboral, por la causa que sea, siempre corresponden al 100% las prestaciones ya devengadas: aguinaldo, vacaciones y prima vacacional proporcionales al tiempo trabajado en el último año. En cambio, cuando se trata de un despido injustificado, la persona trabajadora puede optar por la reinstalación o por la indemnización constitucional; esa indemnización y la prima de antigüedad son compensaciones que habitualmente se negocian dentro de la audiencia de conciliación, buscando un acuerdo mutuamente satisfactorio que evite el desgaste, costo e incertidumbre de un juicio.</p>';
+  html += '<span class="art">LFT, arts. 48 y 162</span></div>';
+
+  html += '<div class="qa-group"><h4>Aguinaldo</h4>';
+  html += '<p class="a" style="font-size:13.5px;line-height:1.7;">Toda persona trabajadora tiene derecho a un aguinaldo anual mínimo de 15 días de salario, pagadero antes del 20 de diciembre. Quien no haya cumplido el año de servicio tiene derecho a la parte proporcional al tiempo trabajado.</p>';
+  html += '<span class="art">LFT, art. 87</span></div>';
+
+  html += '<div class="qa-group"><h4>Vacaciones</h4>';
+  html += '<p class="a" style="font-size:13.5px;line-height:1.7;">Con más de un año de servicios corresponde un periodo anual de vacaciones pagadas, nunca inferior a doce días laborables, que aumenta dos días por cada año subsecuente hasta llegar a veinte, y después dos días por cada cinco años de servicio:</p>';
+  html += '<table style="width:100%;max-width:360px;border-collapse:collapse;font-size:12.5px;margin:8px 0;">';
+  html += '<tr style="border-bottom:1px solid var(--line);"><td style="padding:5px 8px;color:var(--text-muted);">Años laborados</td><td style="padding:5px 8px;color:var(--text-muted);">Días de vacaciones</td></tr>';
+  const filasVac = [['Año 1',12],['Año 2',14],['Año 3',16],['Año 4',18],['Año 5',20],['De 6 a 10 años',22],['De 11 a 15 años',24],['De 16 a 20 años',26],['De 21 a 25 años',28],['De 26 a 30 años',30],['De 31 a 35 años',32]];
+  filasVac.forEach(f=>{ html += '<tr style="border-bottom:1px solid var(--line);"><td style="padding:5px 8px;color:var(--text-on-dark);">'+f[0]+'</td><td style="padding:5px 8px;color:var(--text-on-dark);">'+f[1]+' días</td></tr>'; });
+  html += '</table><span class="art">LFT, arts. 76, 77, 78, 79 y 81</span></div>';
+
+  html += '<div class="qa-group"><h4>Prima vacacional</h4>';
+  html += '<p class="a" style="font-size:13.5px;line-height:1.7;">Durante el periodo de vacaciones el patrón debe cubrir el salario ordinario, más una prima vacacional no menor al 25% sobre los salarios que correspondan durante ese periodo de descanso.</p>';
+  html += '<span class="art">LFT, art. 80</span></div>';
+
+  html += '<div class="qa-group"><h4>Indemnización constitucional</h4>';
+  html += '<p class="a" style="font-size:13.5px;line-height:1.7;">En caso de despido injustificado, la persona trabajadora tiene derecho a ser reinstalada en su puesto, o a una indemnización equivalente a tres meses de salario integrado: el salario base diario más la parte proporcional del aguinaldo anual y de la prima vacacional anual.</p>';
+  html += '<span class="art">Constitución Política, art. 123, apartado A, fracción XXII; LFT, arts. 48 y 50</span></div>';
+
+  html += '<div class="qa-group"><h4>Prima de antigüedad</h4>';
+  html += '<p class="a" style="font-size:13.5px;line-height:1.7;">Consiste en el pago de doce días de salario por cada año de servicio, con un tope de dos veces el salario mínimo vigente. Se paga a quien se separe voluntariamente del empleo con quince años o más de servicios, y también a quien sea separado de su trabajo por causa justificada o injustificada, independientemente de la circunstancia del despido.</p>';
+  html += '<span class="art">LFT, art. 162</span></div>';
+
+  html += '<p class="footnote">El monto que capturó se convirtió a salario diario dividiendo entre '+divisor+' (equivalente diario: '+fmtMoney(salario)+'). La indemnización constitucional usa el salario diario integrado (salario + aguinaldo y prima vacacional prorrateados), conforme al criterio constitucional; los demás conceptos usan el salario ordinario. No incluye salarios vencidos (art. 48 LFT), que dependen de la duración del juicio y se calculan hasta por doce meses. La antigüedad se calcula sobre año de 365.25 días. Fecha de consulta: '+fmtFecha(new Date())+'.</p>';
+
+  out.innerHTML = html;
+  markDone('calculadora');
+}
+
+/* ---------------- visibilidad ---------------- */
+function syncVisibility(){
+  document.getElementById('g_causa_fs').style.opacity = getVal('g_tipo')==='despido_con_aviso' ? '1' : '.35';
+}
+document.querySelectorAll('input[name="g_tipo"]').forEach(r=>r.addEventListener('change', syncVisibility));
+syncVisibility();
+populateOficios();
+document.getElementById('g_oficio').addEventListener('change', onOficioChange);
+onOficioChange();
+document.getElementById('calc_salida').value = new Date().toISOString().slice(0,10);
+{
+  const savedPw = localStorage.getItem('jm_admin_password');
+  const pwField = document.getElementById('admin_password');
+  if(savedPw && pwField) pwField.value = savedPw;
+}
+document.getElementById('calc_acepto_terminos').addEventListener('change', function(){
+  if(this.checked) document.getElementById('calc_terminos_msg').style.display = 'none';
+});
+
+function actualizarEquivalenciaSalario(){
+  const etiquetas = {'1':'Monto que recibe por día (MXN)','7':'Monto que recibe por semana (MXN)','14':'Monto que recibe cada catorcena (MXN)','15':'Monto que recibe cada quincena (MXN)','30.4':'Monto que recibe por mes (MXN)'};
+  const divisor = getVal('calc_periodo') || '1';
+  document.getElementById('calc_salario_legend').textContent = etiquetas[divisor];
+  const monto = parseFloat(document.getElementById('calc_salario').value);
+  const equivEl = document.getElementById('calc_salario_equiv');
+  if(monto && monto>0){
+    equivEl.textContent = 'Equivale a un salario diario de $'+(monto/parseFloat(divisor)).toLocaleString('es-MX',{minimumFractionDigits:2, maximumFractionDigits:2})+'.';
+  } else {
+    equivEl.textContent = '';
+  }
+}
+document.querySelectorAll('input[name="calc_periodo"]').forEach(r=>r.addEventListener('change', actualizarEquivalenciaSalario));
+document.getElementById('calc_salario').addEventListener('input', actualizarEquivalenciaSalario);
+actualizarEquivalenciaSalario();
+</script>
+</body>
+</html>
